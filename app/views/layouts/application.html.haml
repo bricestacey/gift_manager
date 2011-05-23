@@ -18,6 +18,9 @@
           %li{:class => (request.path =~ /^\/bins/) ? 'active' : ''}= link_to 'Bins', bins_path
           %li{:class => (request.path =~ /^\/donors/) ? 'active' : ''}=link_to 'Donors', donors_path
           %li{:class => (request.path =~ /^\/books/) ? 'active' : ''}=link_to 'Books', books_path
+        - if user_signed_in?
+          .right
+            = link_to 'Sign out', destroy_user_session_path
 
     #header
       .container 

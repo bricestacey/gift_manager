@@ -40,6 +40,15 @@
   color: #fff;
 }
 
+/* SIGN OUT */
+#menu .right a {
+  text-decoration: none;
+  color: #cdcdcd;
+}
+#menu .right a:hover {
+  text-decoration: underline;
+}
+
 #header {
   background-color: #EFEFEF;
   padding-top: 0.25em;
