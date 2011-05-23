@@ -1,0 +1,10 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+  = link_to 'Donors', donors_path
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  New Bin
+
+= render :partial => 'form', :object => @donor

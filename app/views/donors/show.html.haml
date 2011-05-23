@@ -1,0 +1,74 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  \/
+  = link_to 'Donors', donors_path
+  \/
+
+- content_for :page_title do
+  = @donor.name
+
+- content_for :action_items do
+  = link_to 'Edit Donor', edit_donor_path(@donor), :class => 'button'
+
+
+%section.span-17.colborder
+  .panel.span-17
+    .panel-title Contact Information
+    .panel-contents
+      %table
+        %tr
+          %th Name:
+          %td= @donor.name
+        %tr
+          %th Phone:
+          %td= @donor.phone
+        %tr
+          %th Email:
+          %td= @donor.email
+        %tr
+          %th Address Line 1:
+          %td= @donor.line1
+        %tr
+          %th Address Line 2:
+          %td= @donor.line2
+        %tr
+          %th City:
+          %td= @donor.city
+        %tr
+          %th State:
+          %td= @donor.state
+        %tr
+          %th Zip Code:
+          %td= @donor.zip
+
+  .panel.span-17
+    .panel-title Other
+    .panel-contents
+      %table
+        %tr
+          %th Created At
+          %td= @donor.created_at.to_formatted_s(:long)
+        %tr
+          %th Updated At
+          %td= @donor.updated_at.to_formatted_s(:long)
+
+.sidebar.span-4.last
+  %p.books-donated
+    %b Books Donated
+    %br
+    = link_to @donor.books.count, donor_books_path(@donor, :scope => 'all')
+
+  %p.books-undecided
+    %b Undecided Books
+    %br
+    = link_to @donor.books.undecided.count, donor_books_path(@donor, :scope => 'undecided')
+
+  %p.books-keep
+    %b Books Kept
+    %br
+    = link_to @donor.books.keep.count, donor_books_path(@donor, :scope => 'keep')
+
+  %p.books-toss
+    %b Books Tossed
+    %br
+    = link_to @donor.books.toss.count, donor_books_path(@donor, :Scope => 'toss')

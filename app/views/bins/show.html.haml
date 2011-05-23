@@ -1,0 +1,48 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+  = link_to 'Bins', bins_path
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  = @bin.name
+
+- content_for :action_items do
+  = link_to 'Edit Bin', edit_bin_path(@bin), :class => 'button'
+  = link_to 'Archive Bin', bin_path(@bin), :method => :delete, :class => 'button'
+
+
+.panel.span-17.colborder
+  .panel-title
+    %b Bin Details
+  .panel-contents
+    %table
+      %tr
+        %th Name
+        %td= @bin.name
+      %tr
+        %th Created At
+        %td= @bin.created_at.to_formatted_s(:long)
+      %tr
+        %th Updated At
+        %td= @bin.updated_at.to_formatted_s(:long)
+
+.sidebar.span-6.last
+  .sidebar-title
+    Books
+  .sidebar-contents
+    %table
+      %tr
+        %th Books
+        %td= link_to @bin.books.count, bin_books_path(@bin, :scope => 'all')
+      %tr
+        %th Undecided
+        %td= link_to @bin.books.undecided.count, bin_books_path(@bin, :scope => 'undecided')
+      %tr
+        %th Keep
+        %td= link_to @bin.books.keep.count, bin_books_path(@bin, :scope => 'keep')
+      %tr
+        %th Toss
+        %td= link_to @bin.books.toss.count, bin_books_path(@bin, :scope => 'toss')
+
+    = link_to 'See all books', bin_books_path(@bin)

@@ -1,0 +1,23 @@
+= semantic_form_for @book do |form|
+  = form.inputs 'Bibliographic Information' do
+    = form.input :isbn, :label => 'ISBN'
+    = form.input :title
+    = form.input :author
+    = form.input :published
+    = form.input :publisher
+    = form.input :series
+    = form.input :call_number, :label => 'Call Number'
+
+  = form.inputs 'Holdings Information' do
+    = form.input :held_local, :as => :select
+    = form.input :held_remote, :label => 'BLC Libraries'
+
+  = form.inputs 'Pricing Information' do
+    = form.input :price_amazon
+
+  = form.inputs 'Miscellaneous' do 
+    = form.input :donor, :selected => session[:donor_id]
+    = form.input :bin
+
+  = form.buttons do
+    = form.commit_button :label => (@book.new_record?) ? 'Add Book' : 'Update Book'

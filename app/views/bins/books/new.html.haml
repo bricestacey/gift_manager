@@ -1,0 +1,14 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+  = link_to 'Bins', bins_path
+  .breadcrumb-seperator /
+  = link_to @bin.name, @bin
+  .breadcrumb-seperator /
+  = link_to 'Books', bin_books_path(@bin)
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  Add Book
+
+= render :partial => 'form', :object => @book

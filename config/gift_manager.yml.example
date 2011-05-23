@@ -1,0 +1,32 @@
+production:
+  amazon:
+    access_key: 
+    secret_key:
+  
+  oclc:
+    wskey:
+    symbol_local: 'AAA'
+    symbol_remote: 'AAA, BBB, CCC'
+
+development:
+  amazon:
+    access_key:
+    secret_key:
+  
+  oclc:
+    wskey:
+    symbol_local: 
+    symbol_remote: 
+
+
+test:
+  amazon:
+    access_key:
+    secret_key:
+  
+  oclc:
+    wskey:
+    symbol_local: 
+    symbol_remote:
+
+

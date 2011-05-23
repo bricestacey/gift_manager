@@ -1,0 +1,25 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  Donors
+
+- content_for :action_items do
+  = link_to 'Add Donor', new_donor_path, :class => 'button'
+
+.span-18
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Actions
+    %tbody
+      - @donors.each do |donor|
+        %tr.donor{:class => "donor-#{donor.id}"}
+          %td= donor.name
+          %td
+            = link_to 'Show', donor
+            = link_to 'Edit', edit_donor_path(donor)
+            = link_to 'Delete', donor, :method => :delete, :confirm => 'Are you sure you want to archive this donor?'
+

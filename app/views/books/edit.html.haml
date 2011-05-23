@@ -1,0 +1,12 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+  = link_to 'Books', books_path
+  .breadcrumb-seperator /
+  = link_to @book.title, @book
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  Edit Book
+
+= render :partial => 'form', :object => @book

@@ -1,0 +1,38 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  Bins
+
+- content_for :action_items do
+  = link_to 'Add Bin', new_bin_path, :class => 'button'
+
+.span-18
+  = link_to "Active (#{@scope_counts[:active]})", bins_path(:scope => 'active'), :class => "button pill#{(params[:scope] == 'active' or params[:scope].nil?) ? ' primary' : ''}"
+  = link_to "Inactive (#{@scope_counts[:inactive]})", bins_path(:scope => 'inactive'), :class => "button pill#{(params[:scope] == 'inactive') ? ' primary' : ''}"
+  %br
+  %br
+
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Total Books
+        %th Undecided
+        %th Keep
+        %th Toss
+        %th Actions
+    %tbody
+      - @bins.each do |bin|
+        %tr.bin{:class => "bin-#{bin.id}"}
+          %td= bin.name
+          %td= bin.books.count
+          %td= bin.books.undecided.count
+          %td= bin.books.keep.count
+          %td= bin.books.toss.count
+          %td
+            = link_to 'Show', bin
+            = link_to 'Edit', edit_bin_path(bin)
+            = link_to 'Archive', bin, :method => :delete, :confirm => 'Are you sure you want to archive this bin?'
+
