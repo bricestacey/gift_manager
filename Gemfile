@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 
+gem 'devise'
+
 gem 'wcapi', :git => 'http://github.com/bricestacey/wcapi'
 gem 'amazon-ecs'
 
