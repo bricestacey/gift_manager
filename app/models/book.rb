@@ -7,4 +7,6 @@ class Book < ActiveRecord::Base
   scope :undecided, where(:recommendation => 'undecided')
   scope :keep,      where(:recommendation => 'keep')
   scope :toss,      where(:recommendation => 'toss')
+
+  scope :today,     where('date(created_at) = ?', Date.today)
 end

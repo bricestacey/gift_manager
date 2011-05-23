@@ -1,0 +1,54 @@
+- content_for :breadcrumb do
+  = link_to 'Home', root_path
+  .breadcrumb-seperator /
+
+- content_for :page_title do
+  Dashboard
+
+- content_for :action_items do
+  /
+
+.panel.span-17.colborder
+  %h3.panel-title Today's Stats
+  .panel-contents
+    %table
+      %thead
+        %tr
+          %th Books Donated
+          %th Undecided Books
+          %th Kept Books
+          %th Tossed Books
+      %tbody
+        %tr
+          %th= Book.today.count
+          %th= Book.today.undecided.count
+          %th= Book.today.keep.count
+          %th= Book.today.toss.count
+
+  %h3.panel-title All Time Stats
+  .panel-contents
+    %table
+      %thead
+        %tr
+          %th Books Donated
+          %th Undecided Books
+          %th Kept Books
+          %th Tossed Books
+      %tbody
+        %tr
+          %th= Book.count
+          %th= Book.undecided.count
+          %th= Book.keep.count
+          %th= Book.toss.count
+
+
+.panel.span-6.last
+  .panel
+    .panel-title Some Info Here
+    .panel-contents
+      Fun!
+
+  .panel
+    .panel-title Help
+    .panel-contents
+      Need help? Ask your supervisor!
