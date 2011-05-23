@@ -35,7 +35,7 @@ There is a fairly comprehensive test suite. You can run the cucumber tests using
 
 You can prepopulate Gift Manager with some seed data by running `rake db:seed`.
 
-There is also a live demo at http://gift-manager.heroku.com
+There is also a live demo at http://gift-manager.heroku.com. You can sign in with email: `admin@example.com`, password: `secret`.
 
 ## Author
 
