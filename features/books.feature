@@ -23,6 +23,7 @@ Feature: Bins
       | Green Eggs and Ham  | 5      | toss           | 1        |
       | SICP                | 1      | keep           | 1        |
       | CRLS                | 1      | keep           | 1        |
+    And   I am signed in as "user@example.com"
     And   I am on the home page
     And   I follow "Books"
 

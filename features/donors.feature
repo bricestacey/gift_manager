@@ -4,6 +4,7 @@ Feature: Donors
 
   Background:
     Given a donor exists
+    And   I am signed in as "user@example.com"
     And   I am on the home page
     And   I follow "Donors"
 
