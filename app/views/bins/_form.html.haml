@@ -1,3 +1,4 @@
 = semantic_form_for @bin do |form|
   = form.inputs :name
-  = form.buttons
+  = form.buttons do
+    = form.commit_button :label => (@bin.new_record?) ? 'Add Bin' : 'Update Bin'

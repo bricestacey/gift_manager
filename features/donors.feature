@@ -8,24 +8,31 @@ Feature: Donors
     And   I am on the home page
     And   I follow "Donors"
 
-  Scenario: The page should have a title
-    Then I should see "Donors" within "title"
-
-  Scenario: The page should have breadcrumbs
-    Then I should see "Home" within ".breadcrumb"
-
-  Scenario: The page should have action items
-    Then I should see "Add Donor" within ".action_items"
-
   # Index
+  Scenario: The page should have a title
+    Then I should see the title "Donors"
+    And  I should see an "Add Donor" action item
+    And  I should see the following breadcrumbs
+      | text |
+      | Home |
+
   Scenario: There should be a list of donors
-    Then I should see "Brice Stacey"
+    Then I should see "Anonymous"
 
   # Show
+  Scenario: The page should have a proper layout
+    When I follow "Show" within ".donor-1"
+    Then I should see the title "Anonymous"
+    And  I should see an "Edit" action item
+    And  I should see the following breadcrumbs
+      | text   |
+      | Home   |
+      | Donors |
+
   Scenario: Showing a particular donor
     When I follow "Show" within ".donor-1"
     Then I should see "Contact Information"
-    And  I should see "Brice Stacey"
+    And  I should see "Anonymous"
 
   Scenario: I should see the number of books donated
     Given the following books exists:
@@ -45,7 +52,14 @@ Feature: Donors
   # New
   Scenario: Adding a new donor
     When I follow "Add Donor"
-    Then I should see "New Donor" within "title"
+    Then I should see the title "New Donor"
+    And  I should see the following breadcrumbs
+      | text   |
+      | Home   |
+      | Donors |
+
+  Scenario: Adding a new donor
+    When I follow "Add Donor"
     When I fill in the following:
       | Name           | Nathaniel Cranberry                |
       | Phone          | 6175555555                         |
@@ -67,11 +81,19 @@ Feature: Donors
   # Edit
   Scenario: Editing a donor
     When I follow "Edit" within ".donor-1"
-    Then I should see "Edit Donor" within "title"
-    When I fill in "Name" with "Matthew Stacey"
+    Then I should see the title "Edit Donor"
+    And  I should see the following breadcrumbs
+      | text         |
+      | Home         |
+      | Donors       |
+      | Anonymous    |
+
+  Scenario: Editing a donor
+    When I follow "Edit" within ".donor-1"
+    When I fill in "Name" with "Brice Stacey"
     And  I press "Update Donor"
     Then I should see "You successfully updated the donor."
-    And  I should see "Matthew Stacey"
+    And  I should see "Brice Stacey"
 
   # Delete
   Scenario: Deleting a donor

@@ -11,6 +11,6 @@ Factory.define :book do |b|
   b.price_amazon    { '$19.99' }
   b.thumbnail       { 'http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg' }
   #b.recommendation  { '' }
-  #b.donor           { '' }
-  b.bin_id          { '1' }
+
+  b.association :donor
 end

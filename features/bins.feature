@@ -29,13 +29,11 @@ Feature: Bins
 
   # Index
   Scenario: The page title should be Bins
-    Then I should see "Bins" within "title"
-
-  Scenario: There should be breadcrumbs
-    Then I should see "Home" within ".breadcrumb"
-
-  Scenario: There should be action items to add a new bin
-    Then I should see "Add Bin" within ".action_items"
+    Then I should see the title "Bins"
+    And  I should see an "Add Bin" action item
+    And  I should see the following breadcrumbs
+      | text |
+      | Home |
 
   Scenario: There should be links to change scope
     Then I should see "Active (4)"
@@ -55,17 +53,33 @@ Feature: Bins
   # New
   Scenario: Adding a new bin
     When I follow "Add Bin"
+    Then I should see the title "New Bin"
+    And  I should see the following breadcrumbs
+      | text |
+      | Home |
+      | Bins |
+
+  Scenario: Adding a new bin
+    When I follow "Add Bin"
     And  I fill in "Name" with "Truck #3, top shelf"
-    And  I press "Create Bin"
-    And  I should see "You successfully created a bin."
+    And  I press "Add Bin"
+    And  I should see "You successfully added a bin."
 
   Scenario: Adding a new bin without a name
     When I follow "Add Bin"
     And  I fill in "Name" with ""
-    And  I press "Create Bin"
+    And  I press "Add Bin"
     Then I should see "can't be blank" within "#bin_name_input"
 
   # Edit
+  Scenario: Editing a bin
+    When I follow "Edit" within ".bin-5"
+    Then I should see the title "Edit Bin"
+    And  I should see the following breadcrumbs
+      | text |
+      | Home |
+      | Bins |
+
   Scenario: Editing a bin
     When I follow "Edit" within ".bin-5"
     And  I fill in "Name" with "Book truck #3, middle shelf"
@@ -84,19 +98,15 @@ Feature: Bins
     And  I should see "You must make a decision on every book before archiving a bin."
 
   # Show
-  Scenario: The page title should be Truck #2, top shelf
+  Scenario: Showing a bin
     When I follow "Show" within ".bin-4"
-    Then I should see "Truck #2, top shelf" within "title"
-
-  Scenario: There should be breadcrumbs
-    When I follow "Show" within ".bin-4"
-    Then I should see "Home" within ".breadcrumb"
-    And  I should see "Bins" within ".breadcrumb"
-
-  Scenario: There should be action items to add a new book
-    When I follow "Show" within ".bin-4"
-    Then I should see "Edit Bin" within ".action_items"
-    Then I should see "Archive Bin" within ".action_items"
+    Then I should see the title "Truck #2, top shelf"
+    And  I should see an "Edit Bin" action item
+    And  I should see an "Archive Bin" action item
+    And  I should see the following breadcrumbs
+      | text |
+      | Home |
+      | Bins |
 
   # Books
   Scenario: There should be links to change scope
@@ -138,7 +148,7 @@ Feature: Bins
   Scenario: Removing a book from a bin
     When I follow "Show" within ".bin-4"
     And  I follow "See all books" within ".sidebar"
-    And  I follow "Remove" within ".book-2"
+    And  I follow "Delete" within ".book-2"
     Then I should see "You successfully removed the book."
 
   Scenario: Showing a book

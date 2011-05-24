@@ -48,7 +48,7 @@ class BinsController < ApplicationController
     @bin = Bin.new(params[:bin])
 
     if @bin.save
-      redirect_to @bin, :notice => 'You successfully created a bin.'
+      redirect_to @bin, :notice => 'You successfully added a bin.'
     else
       render :new
     end

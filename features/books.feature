@@ -1,92 +1,80 @@
-Feature: Bins
+Feature: Books
   As a user
-  I want to manage bins
+  I want to manage books
 
   Background:
-    Given the following bins exists:
-      | name                   | active | id |
-      | Truck #1, top shelf    | false  | 1  |
-      | Truck #1, middle shelf | false  | 2  |
-      | Truck #1, bottom shelf | false  | 3  |
-      | Truck #2, top shelf    | true   | 4  |
-      | Truck #2, middle shelf | true   | 5  |
-      | Truck #2, bottom shelf | true   | 6  |
-      | Truck #3, top shelf    | true   | 7  |
-    And the following donors exists:
-      | id | name         |
-      | 1  | Brice Stacey |
-    And the following books exists:
-      | title               | bin_id | recommendation | donor_id |
-      | Walden              | 4      | undecided      | 1        |
-      | AWOCAMR             | 4      | undecided      | 1        |
-      | The Cat and the Hat | 5      | toss           | 1        |
-      | Green Eggs and Ham  | 5      | toss           | 1        |
-      | SICP                | 1      | keep           | 1        |
-      | CRLS                | 1      | keep           | 1        |
+    Given the following books exists:
+      | title   | author  | recommendation |
+      | Walden  | Thoreau | undecided      |
+      | AWOCAMR | Thoreau | keep           |
     And   I am signed in as "user@example.com"
     And   I am on the home page
     And   I follow "Books"
 
+  Scenario: The page should have the proper standard layout
+    Then I should see the title "Books"
+    Then I should see an "Add Book" action item
+    Then I should see the following breadcrumbs
+      | text |
+      | Home |
+
   # Index
-  Scenario: The page should have a title
-    Then I should see "Books" within "title"
-
-  Scenario: The page should have breadcrumbs
-    Then I should see "Home" within ".breadcrumb"
-
-  Scenario: The page should have action items
-    Then I should see "Add Book" within ".action_items"
-
-  Scenario: There should be links to change scope
-    Then I should see "All (6)"
-    Then I should see "Undecided (2)"
-    Then I should see "Keep (2)"
-    Then I should see "Toss (2)"
-
-  Scenario: The default scope should be all books
+  Scenario: There should be a list of books
     Then I should see "Walden"
     And  I should see "AWOCAMR"
-    And  I should see "The Cat and the Hat"
-    And  I should see "Green Eggs and Ham"
-    And  I should see "SICP"
-    And  I should see "CRLS"
 
-  Scenario: Viewing undecided books
-    When I follow "Undecided"
-    Then I should see "Walden"
-    And  I should see "AWOCAMR"
-    And  I should not see "The Cat and the Hat"
-    And  I should not see "Green Eggs and Ham"
-    And  I should not see "SICP"
-    And  I should not see "CRLS"
+  Scenario: There should be options to scope the table
+  Scenario: The default scope should be 'All'
 
-  Scenario: Adding books to a bin
+  # Show
+  Scenario: Showing a particular book
+    When I follow "Show" within ".book-1"
+    Then I should be on the page for book 1
+    And  I should see the title "Walden"
+    And  I should see an "Edit" action item
+    And  I should see an "Undecided" action item
+    And  I should see a "Keep" action item
+    And  I should see a "Toss" action item
+    And  I should see the following breadcrumbs
+      | text  |
+      | Home  |
+      | Books |
+
+  # New
+  Scenario: Adding a new book
     When I follow "Add Book"
-    And  I fill in "ISBN" with "0201853922"
-    And  I select "Brice Stacey" from "Donor"
-    # I am not sure why I need to reselect a donor here...
-    And  I select "Truck #2, top shelf" from "Bin"
-    And  I press "Add Book"
-    Then I should see "The art of computer programming"
-    And  I should see "Knuth, Donald Ervin"
+    Then I should see the title "New Book"
+    Then I should see the following breadcrumbs
+      | text  |
+      | Home  |
+      | Books |
 
-  Scenario: Editing a book in a bin
+  Scenario: Adding a book
+    When I follow "Add Book"
+    And  I fill in "ISBN" with "1557094179"
+    And  I select "Anonymous" from "Donor"
+    And  I press "Add Book"
+    Then I should see "You successfully added a book"
+    And  I should be on the page for book 3
+    And  I should see "On the duty of civil disobedience"
+
+  Scenario: Adding a book without a donor
+    When I follow "Add Book"
+    And  I fill in "ISBN" with "1557094179"
+    And  I press "Add Book"
+    Then I should see "can't be blank"
+
+  # Edit
+  Scenario: Editing a book
     When I follow "Edit" within ".book-2"
-    And  I fill in "Title" with "A week on the Concord and Merrimack Rivers"
-    # I am not sure why I need to reselect a donor here...
-    And  I select "Brice Stacey" from "Donor"
+    Then I should see the title "Edit Book"
+    When I fill in "Title" with "A Week on the Concord and Merrimack Rivers"
     And  I press "Update Book"
     Then I should see "You successfully updated the book."
-    And  I should see "A week on the Concord and Merrimack Rivers"
+    And  I should see "A Week on the Concord and Merrimack Rivers"
 
-  Scenario: Removing a book from a bin
-    When I follow "Remove" within ".book-2"
-    Then I should see "You successfully removed the book."
-
-  Scenario: Showing a book
-    When I follow "Show" within ".book-1"
-    Then I should see "Walden"
-    Then I should see "Edit Book" within ".action_items"
-    Then I should see "Keep" within ".action_items"
-    Then I should see "Toss" within ".action_items"
-    Then I should see "Undecided" within ".action_items"
+  # Delete
+  Scenario: Deleting a book
+    When I follow "Delete" within ".book-1"
+    Then I should be on the books page
+    And  I should see "You successfully deleted the book."

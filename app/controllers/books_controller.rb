@@ -4,7 +4,6 @@ class BooksController < ApplicationController
   def index
     @books = Book.send(current_scope)
 
-    @title = 'Books'
     respond_with @books
   end
 
@@ -36,7 +35,7 @@ class BooksController < ApplicationController
     @book.attributes = AMZN.find_by_isbn(@book.isbn)
 
     if @book.save
-      redirect_to @book, :notice => 'You successfully created a book.'
+      redirect_to @book, :notice => 'You successfully added a book.'
     else
       render :new
     end
@@ -65,7 +64,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.destroy
-      redirect_to books_path, :notice => 'You successfully removed the book.'
+      redirect_to books_path, :notice => 'You successfully deleted the book.'
     else
       flash[:error] = 'There was problem removing the book. Please try again.'
       redirect_to books_path

@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= title
+    %title= (title = yield :page_title) ? "#{title} | Gift Manager" : "Gift Manager"
     = stylesheet_link_tag 'blueprint/screen'
     = stylesheet_link_tag 'blueprint/print', :media => :print
     = stylesheet_link_tag 'formtastic', 'formtastic_changes'
@@ -28,7 +28,7 @@
           = yield :breadcrumb
         .action_items.right
           = yield :action_items
-        %h2
+        %h2.page_title
           = yield :page_title
 
     .container

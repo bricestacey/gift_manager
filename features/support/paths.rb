@@ -14,8 +14,20 @@ module NavigationHelpers
     when /^the bins page$/
       '/bins'
 
+    when /^the page for bin (.+)$/
+      "/bins/#{$1}"
+
     when /^the donors page$/
       '/donors'
+
+    when /^the page for donor (.+)$/
+      "/donors/#{$1}"
+
+    when /^the books page$/
+      '/books'
+
+    when /^the page for book (.+)$/
+      "/books/#{$1}"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
