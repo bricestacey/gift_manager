@@ -1,0 +1,24 @@
+- content_for :page_title do
+  = @user.email
+
+- content_for :breadcrumb do
+  = breadcrumbs('Home' => root_path, 'Users' => users_path)
+
+- content_for :action_items do
+  = link_to 'Edit User', edit_user_path(@user), :class => 'button'
+  = link_to 'Delete User', @user, :method => :delete, :confirm => 'Are you sure you want to delete this user?', :class => 'button'
+
+.panel
+  .panel-title
+    User Information
+  .panel-contents
+    %table
+      %tr
+        %th Email
+        %td= @user.email
+      %tr
+        %th Created At
+        %td= @user.created_at.to_formatted_s(:long)
+      %tr
+        %th Updated At
+        %td= @user.updated_at.to_formatted_s(:long)

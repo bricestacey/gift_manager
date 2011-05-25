@@ -1,0 +1,8 @@
+= semantic_form_for @user do |form|
+  = form.inputs 'User Information' do
+    = form.input :email
+    = form.input :password
+    = form.input :password_confirmation
+
+  = form.buttons do
+    = form.commit_button :label => (@user.new_record?) ? 'Add User' : 'Update User'

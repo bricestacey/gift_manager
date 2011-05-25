@@ -1,0 +1,13 @@
+- content_for :page_title do
+  New User
+
+- content_for :breadcrumb do
+  = breadcrumbs('Home' => root_path, 'Users' => users_path, @user.email => @user)
+
+- content_for :action_items do
+  /
+
+.panel
+  .panel-title
+  .panel-contents
+    = render :partial => 'form', :object => @user

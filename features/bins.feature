@@ -3,7 +3,9 @@ Feature: Bins
   I want to manage bins
 
   Background:
-    Given the following bins exists:
+    Given I am not authenticated
+    And   I am a new, authenticated user
+    And   the following bins exists:
       | name                   | active | id |
       | Truck #1, top shelf    | false  | 1  |
       | Truck #1, middle shelf | false  | 2  |
@@ -23,7 +25,6 @@ Feature: Bins
       | Green Eggs and Ham  | 5      | toss           | 1        |
       | SICP                | 1      | keep           | 1        |
       | CRLS                | 1      | keep           | 1        |
-    And   I am signed in as "user@example.com"
     And   I am on the home page
     And   I follow "Bins"
 

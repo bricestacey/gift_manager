@@ -1,6 +1,8 @@
 GiftManager::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => 'signin', :sign_out => 'signout'}
 
+  resources :users
+
   resources :books
 
   resources :bins do

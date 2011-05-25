@@ -8,11 +8,6 @@ You must create `config/gift_manager.yml`. An example is provided with the appli
 
 Since Devise sends emails for account recovery, you must setup default url options for your environments. E.g. `config.action_mailer.default_url_options = { :host => 'localhost:3000' }`
 
-There is currently no way to add users via the web UI. You can create them manually in the console.
-
-    rails console [environment]
-    User.create(:email => 'admin@example.com', :password => 'secret')
-
 Otherwise, just your typical `rake db:migrate db:test:preare` and you're good to go.
 
 ## Installation on Heroku

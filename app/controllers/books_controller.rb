@@ -67,7 +67,7 @@ class BooksController < ApplicationController
     if @book.destroy
       redirect_to books_path, :notice => 'You successfully deleted the book.'
     else
-      flash[:error] = 'There was problem removing the book. Please try again.'
+      flash[:error] = 'There was a problem removing the book. Please try again.'
       redirect_to books_path
     end
   end

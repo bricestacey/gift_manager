@@ -3,11 +3,12 @@ Feature: Books
   I want to manage books
 
   Background:
-    Given the following books exists:
+    Given I am not authenticated
+    And   I am a new, authenticated user
+    And   the following books exists:
       | title   | author  | recommendation |
       | Walden  | Thoreau | undecided      |
       | AWOCAMR | Thoreau | keep           |
-    And   I am signed in as "user@example.com"
     And   I am on the home page
     And   I follow "Books"
 

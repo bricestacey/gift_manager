@@ -3,8 +3,9 @@ Feature: Donors
   I want to manage donors
 
   Background:
-    Given a donor exists
-    And   I am signed in as "user@example.com"
+    Given I am not authenticated
+    And   I am a new, authenticated user
+    And   a donor exists
     And   I am on the home page
     And   I follow "Donors"
 
