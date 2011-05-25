@@ -1,10 +1,5 @@
 - content_for :breadcrumb do
-  = link_to 'Home', root_path
-  .breadcrumb-seperator /
-  = link_to 'Bins', bins_path
-  .breadcrumb-seperator /
-  = link_to @bin.name, @bin
-  .breadcrumb-seperator /
+  = breadcrumbs('Home' => root_path, 'Bins' => bins_path, @bin.name => @bin)
 
 - content_for :page_title do
   = 'Books'

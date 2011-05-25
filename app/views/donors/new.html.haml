@@ -1,8 +1,5 @@
 - content_for :breadcrumb do
-  = link_to 'Home', root_path
-  .breadcrumb-seperator /
-  = link_to 'Donors', donors_path
-  .breadcrumb-seperator /
+  = breadcrumbs('Home' => root_path, 'Donors' => donors_path)
 
 - content_for :page_title do
   New Donor

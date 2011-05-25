@@ -5,7 +5,7 @@ class Donors::BooksController < ApplicationController
     @donor = Donor.find(params[:donor_id])
     @books = @donor.books.order(:created_at).page params[:page]
 
-    @books = @books..send(current_scope)
+    @books = @books.send(current_scope) if current_scope
 
     respond_with @donor, @books
   end
@@ -81,6 +81,6 @@ class Donors::BooksController < ApplicationController
   end
 
   def current_scope
-    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'all'
+    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
   end
 end

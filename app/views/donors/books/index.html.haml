@@ -1,10 +1,5 @@
 - content_for :breadcrumb do
-  = link_to 'Home', root_path
-  \/
-  = link_to 'Donors', donors_path
-  \/
-  = link_to @donor.name, @donor
-  \/
+  = breadcrumbs('Home' => root_path, 'Donors' => donors_path, @donor.name => @donor)
 
 - content_for :page_title do
   = @donor.name
