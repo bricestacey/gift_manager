@@ -27,6 +27,10 @@ I am only rudimentarily familiar with Heroku, but it's an excellent way to quick
 6. `heroku rake db:migrate`
 7. GM should then be good to go at http://app_name.heroku.com
 
+## Requirements
+
+Ruby 1.9. The breadcrumbs helper assumes an ordered hash.
+
 ## Tests
 
 There is a fairly comprehensive test suite. You can run the cucumber tests using `cucumber` or rspec `rspec spec/`. If you are having trouble getting them running try running them via bundler, e.g. `bundle exec cucumber`.
