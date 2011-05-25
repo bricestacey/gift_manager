@@ -9,9 +9,7 @@ class BinsController < ApplicationController
 
   def show
     @bin = Bin.find(params[:id])
-
-    scope = Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'all'
-    @books = @bin.books.send(scope)
+    @books = @bin.books
 
     respond_with @bin, @books
   end
