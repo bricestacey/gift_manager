@@ -9,8 +9,8 @@
   = link_to 'Add Bin', new_bin_path, :class => 'button'
 
 .span-18
-  = link_to "Active (#{@scope_counts[:active]})", bins_path(:scope => 'active'), :class => "button pill#{(params[:scope] == 'active' or params[:scope].nil?) ? ' primary' : ''}"
-  = link_to "Inactive (#{@scope_counts[:inactive]})", bins_path(:scope => 'inactive'), :class => "button pill#{(params[:scope] == 'inactive') ? ' primary' : ''}"
+  = link_to "Active (#{Bin.active.count})", bins_path(:scope => 'active'), :class => "button pill#{(params[:scope] == 'active' or params[:scope].nil?) ? ' primary' : ''}"
+  = link_to "Inactive (#{Bin.inactive.count})", bins_path(:scope => 'inactive'), :class => "button pill#{(params[:scope] == 'inactive') ? ' primary' : ''}"
   %br
   %br
 
@@ -36,3 +36,4 @@
             = link_to 'Edit', edit_bin_path(bin)
             = link_to 'Archive', bin, :method => :delete, :confirm => 'Are you sure you want to archive this bin?'
 
+= paginate @bins

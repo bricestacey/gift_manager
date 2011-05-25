@@ -2,30 +2,26 @@ class DonorsController < ApplicationController
   respond_to :html
 
   def index
-    @donors = Donor.all
+    @donors = Donor.order(:created_at).page params[:page]
 
-    @title = "Donors"
     respond_with @donors
   end
 
   def new
     @donor = Donor.new
 
-    @title = "New Donor"
     respond_with @donor
   end
 
   def show
     @donor = Donor.find(params[:id])
 
-    @title = @donor.name
     respond_with @donor
   end
 
   def edit
     @donor = Donor.find(params[:id])
 
-    @title = "Edit Donor"
     respond_with @donor
   end
 

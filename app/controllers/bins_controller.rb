@@ -2,11 +2,9 @@ class BinsController < ApplicationController
   respond_to :html
 
   def index
-    @bins = Bin.send(current_scope).order(:created_at).page params[:page]
-    @scope_counts = scope_counts
+    @bins = Bin.order(:created_at).send(current_scope).page params[:page]
 
-    @title = "Bins"
-    respond_with @bins, @scope_counts
+    respond_with @bins
   end
 
   def show
@@ -15,21 +13,18 @@ class BinsController < ApplicationController
     scope = Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'all'
     @books = @bin.books.send(scope)
 
-    @title = @bin.name
     respond_with @bin, @books
   end
 
   def new
     @bin = Bin.new
 
-    @title = "New Bin"
     respond_with @bin
   end
 
   def edit
     @bin = Bin.find(params[:id])
 
-    @title = "Edit Bin"
     respond_with @bin
   end
 
@@ -76,12 +71,4 @@ class BinsController < ApplicationController
   def current_scope
     Bin.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'active'
   end
-
-  def scope_counts
-    @scope_counts = {
-      :active => Bin.active.count,
-      :inactive => Bin.inactive.count
-    }
-  end
-
 end

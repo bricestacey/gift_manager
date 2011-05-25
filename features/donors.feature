@@ -19,6 +19,14 @@ Feature: Donors
   Scenario: There should be a list of donors
     Then I should see "Anonymous"
 
+  Scenario: If there are too many donors, paginate
+    Given 30 donors exist
+    When  I follow "Donors"
+    Then  I should see "1"
+    Then  I should see "2"
+    Then  I should see "Next"
+    Then  I should see "Last"
+
   # Show
   Scenario: The page should have a proper layout
     When I follow "Show" within ".donor-1"

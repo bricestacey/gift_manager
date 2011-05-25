@@ -26,6 +26,14 @@ Feature: Books
   Scenario: There should be options to scope the table
   Scenario: The default scope should be 'All'
 
+  Scenario: If there are too many books, paginate
+    Given 30 books exist
+    When  I follow "Books"
+    Then  I should see "1"
+    Then  I should see "2"
+    Then  I should see "Next"
+    Then  I should see "Last"
+
   # Show
   Scenario: Showing a particular book
     When I follow "Show" within ".book-1"

@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
-    @books = Book.send(current_scope)
+    @books = Book.page params[:page]
+    @books = @books.send(current_scope) if current_scope
 
     respond_with @books
   end
@@ -72,6 +73,6 @@ class BooksController < ApplicationController
   end
 
   def current_scope
-    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'all'
+    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
   end
 end

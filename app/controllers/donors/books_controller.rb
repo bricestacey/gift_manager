@@ -3,7 +3,9 @@ class Donors::BooksController < ApplicationController
 
   def index
     @donor = Donor.find(params[:donor_id])
-    @books = @donor.books.send(current_scope)
+    @books = @donor.books.order(:created_at).page params[:page]
+
+    @books = @books..send(current_scope)
 
     respond_with @donor, @books
   end

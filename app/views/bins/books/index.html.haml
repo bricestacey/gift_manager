@@ -17,6 +17,8 @@
   .panel-contents
     = render :partial => 'bins/books/table', :object => @books
 
+    = paginate @books
+
 
 .sidebar.span-6.last
   .sidebar-title

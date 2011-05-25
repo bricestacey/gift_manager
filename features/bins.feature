@@ -28,7 +28,7 @@ Feature: Bins
     And   I follow "Bins"
 
   # Index
-  Scenario: The page title should be Bins
+  Scenario: The page should have a title, action items, and breadcrumbs.
     Then I should see the title "Bins"
     And  I should see an "Add Bin" action item
     And  I should see the following breadcrumbs
@@ -49,6 +49,14 @@ Feature: Bins
     Then I should see "Truck #1, top shelf"
     And  I should see "Truck #1, middle shelf"
     And  I should see "Truck #1, bottom shelf"
+
+  Scenario: If there are too many bin, it should be paginated.
+    Given 30 bins exist
+    When  I follow "Bins"
+    Then  I should see "1"
+    Then  I should see "2"
+    Then  I should see "Next"
+    Then  I should see "Last"
 
   # New
   Scenario: Adding a new bin
@@ -123,6 +131,15 @@ Feature: Bins
     Then I should see "Truck #2, top shelf"
     And  I should see "Walden"
     And  I should see "AWOCAMR"
+
+  Scenario: If there are too many books, paginate
+    Given 30 books exist with a bin id of "4"
+    When  I follow "Show" within ".bin-4"
+    And   I follow "See all books" within ".sidebar"
+    Then  I should see "1"
+    Then  I should see "2"
+    Then  I should see "Next"
+    Then  I should see "Last"
 
   Scenario: Adding books to a bin
     When I follow "Show" within ".bin-4"

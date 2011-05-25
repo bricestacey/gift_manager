@@ -3,7 +3,9 @@ class Bins::BooksController < ApplicationController
 
   def index
     @bin = Bin.find(params[:bin_id])
-    @books = @bin.books.send(current_scope)
+    @books = @bin.books.page params[:page]
+
+    @books = @books.send(current_scope) if current_scope
 
     respond_with @bin, @books
   end
@@ -79,6 +81,6 @@ class Bins::BooksController < ApplicationController
   end
 
   def current_scope
-    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'all'
+    Book.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
   end
 end
