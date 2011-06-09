@@ -38,8 +38,10 @@ class Bins::BooksController < ApplicationController
     # Save the last donor to speed up the process
     session[:donor_id] = params[:book][:donor_id]
 
-    @book.attributes = OCLC.find_by_isbn(@book.isbn)
-    @book.attributes = AMZN.find_by_isbn(@book.isbn)
+    unless @book.isbn.blank?
+      @book.attributes = OCLC.find_by_isbn(@book.isbn)
+      @book.attributes = AMZN.find_by_isbn(@book.isbn)
+    end
 
     if @book.save
       redirect_to bin_book_path(@bin, @book), :notice => 'You successfully created a book.'
