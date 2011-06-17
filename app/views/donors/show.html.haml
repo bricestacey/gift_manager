@@ -63,4 +63,4 @@
   %p.books-toss
     %b Books Tossed
     %br
-    = link_to @donor.books.toss.count, donor_books_path(@donor, :Scope => 'toss')
+    = link_to @donor.books.toss.count, donor_books_path(@donor, :scope => 'toss')

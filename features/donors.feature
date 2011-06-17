@@ -58,6 +58,19 @@ Feature: Donors
     And   I should see "Books Tossed"
     And   I should see "0" within ".books-toss"
 
+  # Donor::Books
+  Scenario: Looking up the number of books tossed for a given donor 
+    Given the following books exists:
+      | donor_id | title | author  | recommendation |
+      | 1        | SICP  | Abelson | undecided      |
+      | 1        | TAOCP | Knuth   | toss           |
+      | 1        | ALGO  | CLRS    | toss           |
+    When  I follow "Show" within ".donor-1"
+    And   I follow "2" within ".books-toss"
+    Then  I should see "TAOCP"
+    And   I should see "ALGO"
+    And   I should not see "SICP"
+
   # New
   Scenario: Adding a new donor
     When I follow "Add Donor"
