@@ -167,7 +167,7 @@ Feature: Bins
     When I follow "Show" within ".bin-4"
     And  I follow "See all books" within ".sidebar"
     And  I follow "Delete" within ".book-2"
-    Then I should see "You successfully removed the book."
+    Then I should see "You successfully deleted the book."
 
   Scenario: Showing a book
     When I follow "Show" within ".bin-4"
