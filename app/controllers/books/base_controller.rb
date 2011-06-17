@@ -52,9 +52,9 @@ module Books
           when 'keep'
             "The book's recommendation has been updated to: keep."
           when 'toss'
-            "The book's recommendation has been updated to: keep."
+            "The book's recommendation has been updated to: toss."
           when 'undecided'
-            "The book's recommendation has been updated to: keep."
+            "The book's recommendation has been updated to: undecided."
           else
             "You successfully updated the book."
         end
