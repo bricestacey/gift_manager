@@ -38,6 +38,9 @@ module NavigationHelpers
     when /^the page for user (.+)$/
       "/users/#{$1}"
 
+    when /^the book details for ISBN (.+)$/
+      book_path(Book.find_by_isbn($1))
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

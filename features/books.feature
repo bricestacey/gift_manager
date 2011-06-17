@@ -73,6 +73,14 @@ Feature: Books
     And  I press "Add Book"
     Then I should see "can't be blank"
 
+  Scenario: Adding a book that has no thumbnail in Amazon
+    When I follow "Add Book"
+    And  I fill in "ISBN" with "047210330x"
+    And  I select "Anonymous" from "Donor"
+    And  I press "Add Book"
+    Then I should be on the book details for ISBN 047210330x
+    And  I should see "No thumbnail"
+
   # Edit
   Scenario: Editing a book
     When I follow "Edit" within ".book-2"
