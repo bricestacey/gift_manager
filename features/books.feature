@@ -81,6 +81,21 @@ Feature: Books
     Then I should be on the book details for ISBN 047210330x
     And  I should see "No thumbnail"
 
+  # Covers issue #2. OCLC web service would return the soundtrack for The
+  # Social Network if the ISBN was left blank.
+  Scenario: Adding a book without providing an ISBN
+    When I follow "Add Book"
+    And  I fill in the following:
+      | ISBN   |                               |
+      | Title  | Crooked Letter Crooked Letter |
+      | Author | Franklin, Tom                 |
+    And  I select "Anonymous" from "Donor"
+    And  I press "Add Book"
+    Then I should be on the latest book's details
+    And  I should see "Crooked Letter Crooked Letter"
+    And  I should see "Franklin, Tom"
+    And  I should not see "The social network"
+
   # Edit
   Scenario: Editing a book
     When I follow "Edit" within ".book-2"

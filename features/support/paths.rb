@@ -41,6 +41,9 @@ module NavigationHelpers
     when /^the book details for ISBN (.+)$/
       book_path(Book.find_by_isbn($1))
 
+    when /^the latest book's details$/
+      book_path(Book.order('created_at DESC').first)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
