@@ -50,6 +50,14 @@
         .span-13.last= (@book.held_local) ? 'Yes' : 'No'
 
       .field.span-17
+        .span-4 Copies
+        .span-13.last= @book.local_copies
+
+      .field.span-17
+        .span-4 Charges
+        .span-13.last= @book.local_charges
+
+      .field.span-17
         .span-4 Boston Library Consortium
         .span-13.last= @book.held_remote
 
