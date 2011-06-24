@@ -11,14 +11,14 @@ Feature: Pull book info from local ILS (Voyager)
     And   I follow "Add Book"
 
   Scenario: Add a book that is locally held with at least one circulation
-    When I fill in "ISBN" with "0684852861"
+    When I fill in "ISBN" with the ISBN of a book with at least one circulation
     And  I select "Anonymous" from "Donor"
     And  I press "Add Book"
     Then I should see that there is at least one copy
     And  I should see that there is at least one circulation
 
   Scenario: Add a book that is locally held that hasn't circulated
-    When I fill in "ISBN" with "0316845108"
+    When I fill in "ISBN" with the ISBN of a book without a circulation
     And  I select "Anonymous" from "Donor"
     And  I press "Add Book"
     Then I should see that there is at least one copy
