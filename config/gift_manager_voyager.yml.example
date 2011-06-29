@@ -1,0 +1,18 @@
+production:
+  adapter: 'oracle_enhanced'
+  database: VGER
+  username: username
+  password: password
+
+development:
+  adapter: 'oracle_enhanced'
+  database: VGER
+  username: username
+  password: password
+
+test:
+  adapter: 'oracle_enhanced'
+  database: VGER
+  username: username
+  password: password
+

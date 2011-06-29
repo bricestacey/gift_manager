@@ -38,5 +38,8 @@ module GiftManager
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Enable the voyager extensions. The gem `voyager` must be added to your Gemfile.
+    # config.enable_voyager = true
   end
 end

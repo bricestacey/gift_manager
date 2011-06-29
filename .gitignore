@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/
 config/gift_manager.yml
+config/gift_manager_voyager.yml
 *.swp
