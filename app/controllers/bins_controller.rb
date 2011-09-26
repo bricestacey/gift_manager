@@ -67,6 +67,6 @@ class BinsController < ApplicationController
 
   private
   def current_scope
-    Bin.scopes.keys.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'active'
+    Bin.scopes.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'active'
   end
 end

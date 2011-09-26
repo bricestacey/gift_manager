@@ -9,4 +9,8 @@ class Book < ActiveRecord::Base
   scope :toss,      where(:recommendation => 'toss')
 
   scope :today,     where('date(created_at) = ?', Date.today)
+
+  def self.scopes
+    [:undecided, :keep, :toss, :today]
+  end
 end
