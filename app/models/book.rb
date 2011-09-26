@@ -10,7 +10,5 @@ class Book < ActiveRecord::Base
 
   scope :today,     where('date(created_at) = ?', Date.today)
 
-  def self.scopes
-    [:undecided, :keep, :toss, :today]
-  end
+  SCOPES = [:undecided, :keep, :toss, :today]
 end

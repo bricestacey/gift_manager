@@ -5,7 +5,5 @@ class Bin < ActiveRecord::Base
   scope :active, where(:active => true)
   scope :inactive, where(:active => false)
 
-  def self.scopes
-    [:active, :inactive]
-  end
+  SCOPES = [:active, :inactive]
 end

@@ -81,7 +81,7 @@ module Books
     end
 
     def current_scope
-      Book.scopes.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
+      Book::SCOPES.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
     end
   end
 end
