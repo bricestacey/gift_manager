@@ -15,7 +15,7 @@ FactoryGirl.define do
     held_remote     { 'AUM, BMU, BOS, BXM, MBB, MYG, NED, NHM, SMU, TFW' }
     price_amazon    { '$19.99' }
     thumbnail       { 'http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg' }
- #  recommendation  { '' }
+    recommendation  'undecided'
     bin
     donor
   end
