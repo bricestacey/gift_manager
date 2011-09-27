@@ -4,6 +4,7 @@ describe Bin do
   describe 'attributes' do
     context "given valid attributes" do
       it { should have_valid(:books).when([], [Factory.create(:book)]) }
+    end
     context "given invalid attributes" do
       it { should_not have_valid(:name).when(nil, '') }
     end
