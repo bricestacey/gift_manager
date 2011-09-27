@@ -1,6 +1,6 @@
 class Bin < ActiveRecord::Base
   has_many :books
-  validates_presence_of :name
+  validates :name, presence: true
 
   scope :active, where(:active => true)
   scope :inactive, where(:active => false)

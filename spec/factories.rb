@@ -16,7 +16,7 @@ FactoryGirl.define do
     price_amazon    { '$19.99' }
     thumbnail       { 'http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg' }
  #  recommendation  { '' }
-
+    bin
     donor
   end
 
