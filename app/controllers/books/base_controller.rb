@@ -51,8 +51,8 @@ module Books
         flash[:notice] = case params[:book][:recommendation]
           when 'keep'
             "The book's recommendation has been updated to: keep."
-          when 'toss'
-            "The book's recommendation has been updated to: toss."
+          when 'trash'
+            "The book's recommendation has been updated to: trash."
           when 'undecided'
             "The book's recommendation has been updated to: undecided."
           else

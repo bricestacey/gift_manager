@@ -7,7 +7,7 @@
 - content_for :action_items do
   = link_to 'Edit Book', edit_bin_book_path(@bin, @book), :class => 'button'
   = link_to 'Keep', bin_book_path(@bin, @book, :book => {:recommendation => 'keep'}), :method => :put, :class => 'button'
-  = link_to 'Toss', bin_book_path(@bin, @book, :book => {:recommendation => 'toss'}), :method => :put, :class => 'button'
+  = link_to 'Trash', bin_book_path(@bin, @book, :book => {:recommendation => 'trash'}), :method => :put, :class => 'button'
   = link_to 'Undecided', bin_book_path(@bin, @book, :book => {:recommendation => 'undecided'}), :method => :put, :class => 'button'
 
 %section.span-17.colborder

@@ -55,18 +55,18 @@ Feature: Donors
     And   I should see "1" within ".books-undecided"
     And   I should see "Books Kept"
     And   I should see "1" within ".books-keep"
-    And   I should see "Books Tossed"
-    And   I should see "0" within ".books-toss"
+    And   I should see "Books Trashed"
+    And   I should see "0" within ".books-trash"
 
   # Donor::Books
-  Scenario: Looking up the number of books tossed for a given donor 
+  Scenario: Looking up the number of books trashed for a given donor 
     Given the following books exists:
       | donor_id | title | author  | recommendation |
       | 1        | SICP  | Abelson | undecided      |
-      | 1        | TAOCP | Knuth   | toss           |
-      | 1        | ALGO  | CLRS    | toss           |
+      | 1        | TAOCP | Knuth   | trash          |
+      | 1        | ALGO  | CLRS    | trash          |
     When  I follow "Show" within ".donor-1"
-    And   I follow "2" within ".books-toss"
+    And   I follow "2" within ".books-trash"
     Then  I should see "TAOCP"
     And   I should see "ALGO"
     And   I should not see "SICP"

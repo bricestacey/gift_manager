@@ -60,7 +60,7 @@
     %br
     = link_to @donor.books.keep.count, donor_books_path(@donor, :scope => 'keep')
 
-  %p.books-toss
-    %b Books Tossed
+  %p.books-trash
+    %b Books Trashed
     %br
-    = link_to @donor.books.toss.count, donor_books_path(@donor, :scope => 'toss')
+    = link_to @donor.books.trash.count, donor_books_path(@donor, :scope => 'trash')

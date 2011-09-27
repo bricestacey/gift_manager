@@ -86,7 +86,7 @@ table tbody tr.book-recommendation-undecided td {
 table tbody tr.book-recommendation-keep td {
   background-color: #e6efc2;
 }
-table tbody tr.book-recommendation-toss td {
+table tbody tr.book-recommendation-trash td {
   background-color: #fbe3e4;;
 }
 

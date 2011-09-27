@@ -16,13 +16,13 @@
           %th Books Donated
           %th Undecided Books
           %th Kept Books
-          %th Tossed Books
+          %th Trashed Books
       %tbody
         %tr
           %th= Book.today.count
           %th= Book.today.undecided.count
           %th= Book.today.keep.count
-          %th= Book.today.toss.count
+          %th= Book.today.trash.count
 
   %h3.panel-title All Time Stats
   .panel-contents
@@ -32,13 +32,13 @@
           %th Books Donated
           %th Undecided Books
           %th Kept Books
-          %th Tossed Books
+          %th Trashed Books
       %tbody
         %tr
           %th= Book.count
           %th= Book.undecided.count
           %th= Book.keep.count
-          %th= Book.toss.count
+          %th= Book.trash.count
 
 
 .panel.span-6.last

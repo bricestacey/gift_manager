@@ -11,7 +11,7 @@
 = link_to "All (#{@donor.books.count})", donor_books_path(:scope => 'all'), :class => "button pill#{(params[:scope] == 'all') ? ' primary' : ''}"
 = link_to "Undecided (#{@donor.books.undecided.count})", donor_books_path(:scope => 'undecided'), :class => "button pill#{(params[:scope] == 'undecided') ? ' primary' : ''}"
 = link_to "Keep (#{@donor.books.keep.count})", donor_books_path(:scope => 'keep'), :class => "button pill#{(params[:scope] == 'keep') ? ' primary' : ''}"
-= link_to "Toss (#{@donor.books.toss.count})", donor_books_path(:scope => 'toss'), :class => "button pill#{(params[:scope] == 'toss') ? ' primary' : ''}"
+= link_to "Trash (#{@donor.books.trash.count})", donor_books_path(:scope => 'trash'), :class => "button pill#{(params[:scope] == 'trash') ? ' primary' : ''}"
 %br
 %br
 

@@ -21,8 +21,8 @@ Feature: Bins
       | title               | bin_id | recommendation | donor_id |
       | Walden              | 4      | undecided      | 1        |
       | AWOCAMR             | 4      | undecided      | 1        |
-      | The Cat and the Hat | 5      | toss           | 1        |
-      | Green Eggs and Ham  | 5      | toss           | 1        |
+      | The Cat and the Hat | 5      | trash          | 1        |
+      | Green Eggs and Ham  | 5      | trash          | 1        |
       | SICP                | 1      | keep           | 1        |
       | CRLS                | 1      | keep           | 1        |
     And   I am on the home page
@@ -124,7 +124,7 @@ Feature: Bins
     Then I should see "All (2)"
     Then I should see "Undecided (2)"
     Then I should see "Keep (0)"
-    Then I should see "Toss (0)"
+    Then I should see "Trash (0)"
 
   Scenario: The default scope should be all the items
     When I follow "Show" within ".bin-4"
@@ -176,5 +176,5 @@ Feature: Bins
     Then I should see "Walden"
     Then I should see "Edit Book" within ".action_items"
     Then I should see "Keep" within ".action_items"
-    Then I should see "Toss" within ".action_items"
+    Then I should see "Trash" within ".action_items"
     Then I should see "Undecided" within ".action_items"

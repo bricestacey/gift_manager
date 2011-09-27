@@ -43,7 +43,7 @@ Feature: Books
     And  I should see an "Edit" action item
     And  I should see an "Undecided" action item
     And  I should see a "Keep" action item
-    And  I should see a "Toss" action item
+    And  I should see a "Trash" action item
     And  I should see the following breadcrumbs
       | text  |
       | Home  |
@@ -62,6 +62,7 @@ Feature: Books
     When I follow "Add Book"
     And  I fill in "ISBN" with "1557094179"
     And  I select "Anonymous" from "Donor"
+    And  I select "Top Shelf" from "Bin"
     And  I press "Add Book"
     Then I should see "You successfully added a book"
     And  I should be on the page for book 3
@@ -77,6 +78,7 @@ Feature: Books
     When I follow "Add Book"
     And  I fill in "ISBN" with "047210330x"
     And  I select "Anonymous" from "Donor"
+    And  I select "Top Shelf" from "Bin"
     And  I press "Add Book"
     Then I should be on the book details for ISBN 047210330x
     And  I should see "No thumbnail"
@@ -90,6 +92,7 @@ Feature: Books
       | Title  | Crooked Letter Crooked Letter |
       | Author | Franklin, Tom                 |
     And  I select "Anonymous" from "Donor"
+    And  I select "Top Shelf" from "Bin"
     And  I press "Add Book"
     Then I should be on the latest book's details
     And  I should see "Crooked Letter Crooked Letter"

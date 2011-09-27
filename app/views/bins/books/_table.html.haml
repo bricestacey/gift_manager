@@ -1,7 +1,7 @@
 = link_to "All (#{@bin.books.count})", bin_books_path(@bin, :scope => 'all'), :class => "button pill#{(params[:scope] == 'all' or params[:scope].nil?) ? ' primary' : ''}"
 = link_to "Undecided (#{@bin.books.undecided.count})", bin_books_path(@bin, :scope => 'undecided'), :class => "button pill#{(params[:scope] == 'undecided') ? ' primary' : ''}"
 = link_to "Keep (#{@bin.books.keep.count})", bin_books_path(@bin, :scope => 'keep'), :class => "button pill#{(params[:scope] == 'keep') ? ' primary' : ''}"
-= link_to "Toss (#{@bin.books.toss.count})", bin_books_path(@bin, :scope => 'toss'), :class => "button pill#{(params[:scope] == 'toss') ? ' primary' : ''}"
+= link_to "Trash (#{@bin.books.trash.count})", bin_books_path(@bin, :scope => 'trash'), :class => "button pill#{(params[:scope] == 'trash') ? ' primary' : ''}"
 %br
 %br
 

@@ -39,7 +39,7 @@
         %th Keep
         %td= link_to @bin.books.keep.count, bin_books_path(@bin, :scope => 'keep')
       %tr
-        %th Toss
-        %td= link_to @bin.books.toss.count, bin_books_path(@bin, :scope => 'toss')
+        %th Trash
+        %td= link_to @bin.books.trash.count, bin_books_path(@bin, :scope => 'trash')
 
     = link_to 'See all books', bin_books_path(@bin)

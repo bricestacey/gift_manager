@@ -7,7 +7,7 @@
 - content_for :action_items do
   = link_to 'Edit Book', edit_donor_book_path(@donor, @book), :class => 'button'
   = link_to 'Keep', donor_book_path(@donor, @book, :book => {:recommendation => 'keep'}), :method => :put, :class => 'button'
-  = link_to 'Toss', donor_book_path(@donor, @book, :book => {:recommendation => 'toss'}), :method => :put, :class => 'button'
+  = link_to 'Trash', donor_book_path(@donor, @book, :book => {:recommendation => 'trash'}), :method => :put, :class => 'button'
   = link_to 'Undecided', donor_book_path(@donor, @book, :book => {:recommendation => 'undecided'}), :method => :put, :class => 'button'
 
 %section.span-17.colborder
