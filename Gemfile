@@ -18,6 +18,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', :require => false
   gem 'database_cleaner'
   gem 'cucumber-rails'
   gem 'valid_attribute'
