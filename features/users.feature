@@ -16,7 +16,7 @@ Feature: Users
     And   I follow "Users"
 
   Scenario: The page should have the proper standard layout
-    Then I should see the title "Users"
+    Then I should see "Users" within the title
     Then I should see an "Add User" action item
     Then I should see the following breadcrumbs
       | text |
@@ -34,15 +34,12 @@ Feature: Users
   Scenario: If there are too many users, paginate
     Given 30 users exist
     When  I follow "Users"
-    Then  I should see "1"
-    Then  I should see "2"
-    Then  I should see "Next"
-    Then  I should see "Last"
+    Then  I should see pagination
 
   # Show
   Scenario: Showing a particular user
-    When I follow "Show" within ".user-1"
-    Then I should be on the page for user 1
+    When I follow "Show" within the user "user1@example.com"
+    Then I should be on the page for the user "user1@example.com"
     And  I should see "User Information"
     And  I should see "user1@example.com"
     And  I should see a "Edit User" action item
@@ -55,7 +52,7 @@ Feature: Users
   # New
   Scenario: Adding a new user
     When I follow "Add User"
-    Then I should see the title "New User"
+    Then I should see "New User" within the title
     Then I should see the following breadcrumbs
       | text  |
       | Home  |
@@ -68,21 +65,20 @@ Feature: Users
     And  I fill in "Password confirmation" with "secret"
     And  I press "Add User"
     Then I should see "You successfully added a user."
-    And  I should be on the page for user 7
-    And  I should see "student@example.com"
+    And  I should be on the page for the user "student@example.com"
 
   # Edit
   Scenario: Editing a user
-    When I follow "Edit" within ".user-2"
-    Then I should see the title "Edit User"
+    When I follow "Edit" within the user "user2@example.com"
+    Then I should see "Edit User" within the title
     When I fill in "Password" with "newsecret"
     And  I fill in "Password confirmation" with "newsecret"
     And  I press "Update User"
     Then I should see "You successfully updated the user."
-    And  I should be on the page for user 2
+    And  I should be on the page for the user "user2@example.com"
 
   # Delete
   Scenario: Deleting a user
-    When I follow "Delete" within ".user-2"
-    Then I should be on the users page
-    And  I should see "You successfully deleted the user."
+    When I follow "Delete" within the user "user3@example.com"
+    Then I should see "You successfully deleted the user."
+    And  I should be on the users page

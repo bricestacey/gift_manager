@@ -11,6 +11,39 @@ module HtmlSelectorsHelpers
     when "the page"
       "html > body"
 
+    when "the title"
+      ".page_title"
+
+    when "the action items"
+      ".action_items"
+
+    when /^the book with (.*) "([^"]*)"$/
+      if $1 == 'isbn' 
+        @book = Book.find_by_isbn($2)
+        raise %{Can't find book with isbn "#{$2}".\n} if @book.nil?
+      elsif $1 == 'title'
+        @book = Book.find_by_title($2)
+        raise %{Can't find book with title "#{$2}".\n} if @book.nil?
+      else
+        raise "Invalid attribute #{$1}"
+      end
+      ".book-#{@book.id}"
+
+    when /^the bin "([^"]*)"$/
+      @bin = Bin.find_by_name($1)
+      raise %{Can't find bin "#{$1}".\n} if @bin.nil?
+      ".bin-#{@bin.id}"
+
+    when /^the donor "([^"]*)"$/
+      @donor = Donor.find_by_name($1)
+      raise %{Can't find the donor "#{$1}".\n} if @donor.nil?
+      ".donor-#{@donor.id}"
+
+    when /^the user "([^"]*)"$/
+      @user = User.find_by_email($1)
+      raise %{Can't find the user "#{$1}".\n} if @user.nil?
+      ".user-#{@user.id}"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
