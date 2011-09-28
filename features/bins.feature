@@ -6,24 +6,22 @@ Feature: Bins
     Given I am not authenticated
     And   I am a new, authenticated user
     And   the following bins exists:
-      | name                   | active | id |
-      | Truck #1, top shelf    | false  | 1  |
-      | Truck #1, middle shelf | false  | 2  |
-      | Truck #1, bottom shelf | false  | 3  |
-      | Truck #2, top shelf    | true   | 4  |
-      | Truck #2, middle shelf | true   | 5  |
-      | Truck #2, bottom shelf | true   | 6  |
-    And the following donors exists:
-      | id | name         |
-      | 1  | Brice Stacey |
-    And the following books exists:
-      | title               | bin_id | recommendation | donor_id |
-      | Walden              | 4      | undecided      | 1        |
-      | AWOCAMR             | 4      | undecided      | 1        |
-      | The Cat and the Hat | 5      | trash          | 1        |
-      | Green Eggs and Ham  | 5      | trash          | 1        |
-      | SICP                | 1      | keep           | 1        |
-      | CRLS                | 1      | keep           | 1        |
+      | name                   | active |
+      | Truck #1, top shelf    | false  |
+      | Truck #1, middle shelf | false  |
+      | Truck #1, bottom shelf | false  |
+      | Truck #2, top shelf    | true   |
+      | Truck #2, middle shelf | true   |
+      | Truck #2, bottom shelf | true   |
+    And   a donor exists with a name of "Brice Stacey"
+    And   the following books exists:
+      | title               | bin                          | recommendation | donor              |
+      | Walden              | name: Truck #2, top shelf    | undecided      | name: Brice Stacey |
+      | AWOCAMR             | name: Truck #2, top shelf    | undecided      | name: Brice Stacey |
+      | The Cat and the Hat | name: Truck #2, middle shelf | trash          | name: Brice Stacey |
+      | Green Eggs and Ham  | name: Truck #2, middle shelf | trash          | name: Brice Stacey |
+      | SICP                | name: Truck #1, top shelf    | keep           | name: Brice Stacey |
+      | CRLS                | name: Truck #1, top shelf    | keep           | name: Brice Stacey |
     And   I am on the home page
     And   I follow "Bins"
 
@@ -35,23 +33,27 @@ Feature: Bins
       | text |
       | Home |
 
-  Scenario: There should be links to change scope
+  Scenario: The index should have facets to change the scope
     Then I should see an "Active (3)" facet is selected
     Then I should see an "Inactive (3)" facet
 
   Scenario: The default scope should be the active bins
-    Then I should see "Truck #2, top shelf"
-    And  I should see "Truck #2, middle shelf"
-    And  I should see "Truck #2, bottom shelf"
+    Then I should see the following bins:
+      | name                   | total | undecided | keep | trash |
+      | Truck #2, top shelf    | 2     | 2         | 0    | 0     |
+      | Truck #2, middle shelf | 2     | 0         | 0    | 2     |
+      | Truck #2, bottom shelf | 0     | 0         | 0    | 0     |
     And  I should not see "Truck #1, top shelf"
     And  I should not see "Truck #1, middle shelf"
     And  I should not see "Truck #1, bottom shelf"
 
   Scenario: Viewing inactive bins
     When I follow "Inactive"
-    Then I should see "Truck #1, top shelf"
-    And  I should see "Truck #1, middle shelf"
-    And  I should see "Truck #1, bottom shelf"
+    Then I should see the following bins:
+      | name                   | total | undecided | keep | trash |
+      | Truck #1, top shelf    | 2     | 0         | 2    | 0     |
+      | Truck #1, middle shelf | 0     | 0         | 0    | 0     |
+      | Truck #1, bottom shelf | 0     | 0         | 0    | 0     |
     And  I should not see "Truck #2, top shelf"
     And  I should not see "Truck #2, middle shelf"
     And  I should not see "Truck #2, bottom shelf"
@@ -65,12 +67,17 @@ Feature: Bins
   Scenario: Showing a bin
     When I follow "Show" within the bin "Truck #2, top shelf"
     Then I should see "Truck #2, top shelf" within the title
-    And  I should see an "Edit Bin" action item
-    And  I should see an "Archive Bin" action item
+    And  I should see the following action items:
+      | Edit Bin    |
+      | Archive Bin |
     And  I should see the following breadcrumbs
       | text |
       | Home |
       | Bins |
+    And  I should see 2 books were donated
+    And  I should see 2 books are undecided
+    And  I should see 0 books are keep
+    And  I should see 0 books are trash
 
   # New
   Scenario: Adding a new bin
@@ -85,7 +92,7 @@ Feature: Bins
     When I follow "Add Bin"
     And  I fill in "Name" with "Truck #3, top shelf"
     And  I press "Add Bin"
-    And  I should see "You successfully added a bin."
+    Then I should see "You successfully added a bin."
     And  I should be on the page for the bin "Truck #3, top shelf"
 
   Scenario: Adding a new bin without a name
@@ -96,7 +103,7 @@ Feature: Bins
 
   # Edit
   Scenario: Standard layout for editing a bin
-    When I follow "Edit" within ".bin-5"
+    When I follow "Edit" within the bin "Truck #2, top shelf"
     Then I should see "Edit Bin" within the title
     And  I should see the following breadcrumbs
       | text |
@@ -112,11 +119,11 @@ Feature: Bins
 
   # Archive
   Scenario: Archiving a complete bin
-    When I follow "Archive" within ".bin-5"
+    When I follow "Archive" within the bin "Truck #2, middle shelf"
     Then I should be on the bins page
     And  I should see "You successfully archived the bin."
 
   Scenario: Archiving an incomplete bin
-    When I follow "Archive" within ".bin-4"
+    When I follow "Archive" within the bin "Truck #2, top shelf"
     Then I should be on the bins page
     And  I should see "You must make a decision on every book before archiving a bin."

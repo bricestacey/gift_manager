@@ -1,7 +1,0 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path, 'Bins' => bins_path, @bin.name => @bin, 'Books' => bin_books_path(@bin), @book.title => bin_book_path(@bin, @book))
-
-- content_for :page_title do
-  Edit Book
-
-= render :partial => 'form', :object => @book

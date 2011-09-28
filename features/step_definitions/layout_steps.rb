@@ -15,3 +15,9 @@ end
 Then /^I should see an? "([^"]*)" facet$/ do |facet|
   Then %{I should see "#{facet}" within ".scope"}
 end
+
+Then /^I should see the following action items:$/ do |table|
+  table.raw.flatten.each do |item|
+    Then %{I should see "#{item}" within the action items}
+  end
+end

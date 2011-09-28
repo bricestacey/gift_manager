@@ -25,21 +25,23 @@
         %td= @bin.updated_at.to_formatted_s(:long)
 
 .sidebar.span-6.last
-  .sidebar-title
-    Books
   .sidebar-contents
-    %table
-      %tr
-        %th Books
-        %td= link_to @bin.books.count, bin_books_path(@bin, :scope => 'all')
-      %tr
-        %th Undecided
-        %td= link_to @bin.books.undecided.count, bin_books_path(@bin, :scope => 'undecided')
-      %tr
-        %th Keep
-        %td= link_to @bin.books.keep.count, bin_books_path(@bin, :scope => 'keep')
-      %tr
-        %th Trash
-        %td= link_to @bin.books.trash.count, bin_books_path(@bin, :scope => 'trash')
+    %p.books-donated
+      %b Books Donated
+      %br
+      = link_to @bin.books.count, books_path(scope: 'all', :bin => @bin.id)
 
-    = link_to 'See all books', bin_books_path(@bin)
+    %p.books-undecided
+      %b Books Undecided
+      %br
+      = link_to @bin.books.undecided.count, books_path(scope: 'undecided', :bin => @bin.id)
+
+    %p.books-keep
+      %b Books Kept
+      %br
+      = link_to @bin.books.keep.count, books_path(scope: 'keep', :bin => @bin.id)
+
+    %p.books-trash
+      %b Books Trashed
+      %br
+      = link_to @bin.books.trash.count, books_path(scope: 'trash', :bin => @bin.id)

@@ -5,7 +5,7 @@ Feature: Donors
   Background:
     Given I am not authenticated
     And   I am a new, authenticated user
-    And   a donor exists
+    And   a donor exists with a name of "Anonymous"
     And   I am on the home page
     And   I follow "Donors"
 
@@ -42,9 +42,9 @@ Feature: Donors
 
   Scenario: I should see the number of books donated
     Given the following books exists:
-      | donor_id | title | author  | recommendation |
-      | 1        | SICP  | Abelson | undecided      |
-      | 1        | TAOCP | Knuth   | keep           |
+      | donor           | title | author  | recommendation |
+      | name: Anonymous | SICP  | Abelson | undecided      |
+      | name: Anonymous | TAOCP | Knuth   | keep           |
     When  I follow "Show" within the donor "Anonymous"
     Then  I should see "Books Donated"
     And   I should see 2 books were donated

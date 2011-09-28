@@ -2,16 +2,9 @@ GiftManager::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => 'signin', :sign_out => 'signout'}
 
   resources :users
-
   resources :books
-
-  resources :bins do
-    resources :books, :controller => 'Bins::Books'
-  end
-
-  resources :donors do
-    resources :books, :controller => 'Donors::Books'
-  end
+  resources :bins
+  resources :donors
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

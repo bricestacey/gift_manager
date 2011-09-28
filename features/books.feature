@@ -5,10 +5,12 @@ Feature: Books
   Background:
     Given I am not authenticated
     And   I am a new, authenticated user
+    And   A donor exists with a name of "Anonymous"
+    And   A bin exists with a name of "Top Shelf"
     And   the following books exists:
-      | title       | author  | published | publisher      | recommendation | 
-      | Walden      | Thoreau | 1854      | foo            | undecided      |
-      | AWOCAMR     | Thoreau | 1849      | bar            | keep           |
+      | title       | author  | published | publisher      | recommendation | donor           | bin             |
+      | Walden      | Thoreau | 1854      | foo            | undecided      | name: Anonymous | name: Top Shelf |
+      | AWOCAMR     | Thoreau | 1849      | bar            | keep           | name: Anonymous | name: Top Shelf |
     And   I am on the home page
     And   I follow "Books"
 
@@ -42,10 +44,11 @@ Feature: Books
     When I show the book "Walden"
     Then I should be on the page for the book with title "Walden"
     And  I should see "Walden" within the title
-    And  I should see an "Edit" action item
-    And  I should see an "Undecided" action item
-    And  I should see a "Keep" action item
-    And  I should see a "Trash" action item
+    And  I should see the following action items:
+      | Edit      |
+      | Undecided |
+      | Keep      |
+      | Trash     |
     And  I should see the following breadcrumbs
       | text  |
       | Home  |

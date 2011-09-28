@@ -1,7 +1,0 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path, 'Donors' => donors_path, @donor.name => @donor)
-
-- content_for :page_title do
-  Add Book
-
-= render :partial => 'form', :object => @book

@@ -25,11 +25,11 @@
     %tbody
       - @bins.each do |bin|
         %tr.bin{:class => "bin-#{bin.id}"}
-          %td= bin.name
-          %td= bin.books.count
-          %td= bin.books.undecided.count
-          %td= bin.books.keep.count
-          %td= bin.books.trash.count
+          %td.bin-name= bin.name
+          %td.bin-total= bin.books.count
+          %td.bin-undecided= bin.books.undecided.count
+          %td.bin-keep= bin.books.keep.count
+          %td.bin-trash= bin.books.trash.count
           %td
             = link_to 'Show', bin
             = link_to 'Edit', edit_bin_path(bin)

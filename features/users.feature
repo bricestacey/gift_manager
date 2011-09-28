@@ -4,12 +4,12 @@ Feature: Users
 
   Background:
     Given the following users exists:
-      | id | email             |
-      | 1  | user1@example.com |
-      | 2  | user2@example.com |
-      | 3  | user3@example.com |
-      | 4  | user4@example.com |
-      | 5  | user5@example.com |
+      | email             |
+      | user1@example.com |
+      | user2@example.com |
+      | user3@example.com |
+      | user4@example.com |
+      | user5@example.com |
     And   I am not authenticated
     And   I am a new, authenticated user
     And   I am on the home page
@@ -42,8 +42,9 @@ Feature: Users
     Then I should be on the page for the user "user1@example.com"
     And  I should see "User Information"
     And  I should see "user1@example.com"
-    And  I should see a "Edit User" action item
-    And  I should see a "Delete User" action item
+    And  I should see the following action items:
+      | Edit User   |
+      | Delete User |
     And  I should see the following breadcrumbs
       | text  |
       | Home  |
