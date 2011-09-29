@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe BooksController do
+  use_vcr_cassette 'books_controller'
   def valid_attributes
     donor = Factory.create(:donor)
     bin   = Factory.create(:bin)

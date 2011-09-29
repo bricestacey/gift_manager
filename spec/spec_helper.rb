@@ -8,12 +8,24 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'valid_attribute'
+require 'vcr'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+VCR.config do |c|
+  c.cassette_library_dir     = 'spec/cassettes'
+  c.stub_with                :webmock
+  c.default_cassette_options = { :record => :new_episodes, :erb => true }
+
+  c.filter_sensitive_data('<OCLC_WSKEY>') { APP_CONFIG['oclc']['wskey'] }
+  c.filter_sensitive_data('<AMAZON_ACCESS_KEY>') { APP_CONFIG['amazon']['access_key'] }
+  c.filter_sensitive_data('<AMAZON_ASSOCIATE_TAG>') { APP_CONFIG['amazon']['associate_tag'] }
+end
+
 RSpec.configure do |config|
+  config.extend VCR::RSpec::Macros
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -30,4 +42,6 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.include Devise::TestHelpers, :type => :controller
 end

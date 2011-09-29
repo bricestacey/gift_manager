@@ -1,0 +1,95 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://ecs.amazonaws.com:80/onca/xml?AWSAccessKeyId=<AMAZON_ACCESS_KEY>&AssociateTag=<AMAZON_ASSOCIATE_TAG>&Condition=All&IdType=ISBN&ItemId=0201853922&Operation=ItemLookup&ResponseGroup=Medium&SearchIndex=Books&Service=AWSECommerceService&Signature=QDc+wWQhOKdXmDnRp9TEp8ON20f6mjzH4bzj3IQyyFE=&Timestamp=2011-09-29T21:50:54Z&Version=2011-08-01
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 29 Sep 2011 21:50:51 GMT
+      server:
+      - Server
+      content-type:
+      - text/xml;charset=UTF-8
+      vary:
+      - Accept-Encoding,User-Agent
+      nncoection:
+      - close
+      transfer-encoding:
+      - chunked
+    body: ! '<?xml version="1.0" ?><ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01"><OperationRequest><HTTPHeaders><Header
+      Name="UserAgent" Value="Ruby"></Header></HTTPHeaders><RequestId>e5a0c8e0-2f47-4551-9d7b-cc3f5b4c4b7b</RequestId><Arguments><Argument
+      Name="Condition" Value="All"></Argument><Argument Name="Operation" Value="ItemLookup"></Argument><Argument
+      Name="Service" Value="AWSECommerceService"></Argument><Argument Name="Signature"
+      Value="QDc+wWQhOKdXmDnRp9TEp8ON20f6mjzH4bzj3IQyyFE="></Argument><Argument Name="AssociateTag"
+      Value="<AMAZON_ASSOCIATE_TAG>"></Argument><Argument Name="Version" Value="2011-08-01"></Argument><Argument
+      Name="ItemId" Value="0201853922"></Argument><Argument Name="IdType" Value="ISBN"></Argument><Argument
+      Name="AWSAccessKeyId" Value="<AMAZON_ACCESS_KEY>"></Argument><Argument Name="Timestamp"
+      Value="2011-09-29T21:50:54Z"></Argument><Argument Name="ResponseGroup" Value="Medium"></Argument><Argument
+      Name="SearchIndex" Value="Books"></Argument></Arguments><RequestProcessingTime>0.0174590000000000</RequestProcessingTime></OperationRequest><Items><Request><IsValid>True</IsValid><ItemLookupRequest><Condition>All</Condition><IdType>ISBN</IdType><ItemId>0201853922</ItemId><ResponseGroup>Medium</ResponseGroup><SearchIndex>Books</SearchIndex><VariationPage>All</VariationPage></ItemLookupRequest></Request><Item><ASIN>0201853922</ASIN><DetailPageURL>http://www.amazon.com/Art-Computer-Programming-Fascicle-Millennium/dp/0201853922%3FSubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0201853922</DetailPageURL><ItemLinks><ItemLink><Description>Technical
+      Details</Description><URL>http://www.amazon.com/Art-Computer-Programming-Fascicle-Millennium/dp/tech-data/0201853922%3FSubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>Add
+      To Baby Registry</Description><URL>http://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3D0201853922%26SubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>Add
+      To Wedding Registry</Description><URL>http://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3D0201853922%26SubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>Add
+      To Wishlist</Description><URL>http://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3D0201853922%26SubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>Tell
+      A Friend</Description><URL>http://www.amazon.com/gp/pdp/taf/0201853922%3FSubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>All
+      Customer Reviews</Description><URL>http://www.amazon.com/review/product/0201853922%3FSubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink><ItemLink><Description>All
+      Offers</Description><URL>http://www.amazon.com/gp/offer-listing/0201853922%3FSubscriptionId%3D<AMAZON_ACCESS_KEY>%26tag%3D<AMAZON_ASSOCIATE_TAG>%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0201853922</URL></ItemLink></ItemLinks><SalesRank>129746</SalesRank><SmallImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL75_.jpg</URL><Height
+      Units="pixels">75</Height><Width Units="pixels">50</Width></SmallImage><MediumImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg</URL><Height
+      Units="pixels">160</Height><Width Units="pixels">107</Width></MediumImage><LargeImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL.jpg</URL><Height
+      Units="pixels">500</Height><Width Units="pixels">335</Width></LargeImage><ImageSets><ImageSet
+      Category="primary"><SwatchImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL30_.jpg</URL><Height
+      Units="pixels">30</Height><Width Units="pixels">20</Width></SwatchImage><SmallImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL75_.jpg</URL><Height
+      Units="pixels">75</Height><Width Units="pixels">50</Width></SmallImage><ThumbnailImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL75_.jpg</URL><Height
+      Units="pixels">75</Height><Width Units="pixels">50</Width></ThumbnailImage><TinyImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL110_.jpg</URL><Height
+      Units="pixels">110</Height><Width Units="pixels">74</Width></TinyImage><MediumImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg</URL><Height
+      Units="pixels">160</Height><Width Units="pixels">107</Width></MediumImage><LargeImage><URL>http://ecx.images-amazon.com/images/I/51C7CVG94XL.jpg</URL><Height
+      Units="pixels">500</Height><Width Units="pixels">335</Width></LargeImage></ImageSet></ImageSets><ItemAttributes><Author>Donald
+      E. Knuth</Author><Binding>Paperback</Binding><EAN>9780201853926</EAN><EANList><EANListElement>9780201853926</EANListElement></EANList><Edition>1</Edition><ISBN>0201853922</ISBN><IsEligibleForTradeIn>1</IsEligibleForTradeIn><Label>Addison-Wesley
+      Professional</Label><Languages><Language><Name>English</Name><Type>Unknown</Type></Language><Language><Name>English</Name><Type>Original
+      Language</Type></Language><Language><Name>English</Name><Type>Published</Type></Language></Languages><ListPrice><Amount>1999</Amount><CurrencyCode>USD</CurrencyCode><FormattedPrice>$19.99</FormattedPrice></ListPrice><Manufacturer>Addison-Wesley
+      Professional</Manufacturer><NumberOfItems>1</NumberOfItems><NumberOfPages>144</NumberOfPages><PackageDimensions><Height
+      Units="hundredths-inches">40</Height><Length Units="hundredths-inches">940</Length><Weight
+      Units="hundredths-pounds">55</Weight><Width Units="hundredths-inches">630</Width></PackageDimensions><ProductGroup>Book</ProductGroup><ProductTypeName>ABIS_BOOK</ProductTypeName><PublicationDate>2005-02-24</PublicationDate><Publisher>Addison-Wesley
+      Professional</Publisher><SKU>ACAMP_book_new_0201853922</SKU><Studio>Addison-Wesley
+      Professional</Studio><Title>The Art of Computer Programming, Volume 1, Fascicle
+      1: MMIX -- A RISC Computer for the New Millennium</Title><TradeInValue><Amount>110</Amount><CurrencyCode>USD</CurrencyCode><FormattedPrice>$1.10</FormattedPrice></TradeInValue></ItemAttributes><OfferSummary><LowestNewPrice><Amount>1206</Amount><CurrencyCode>USD</CurrencyCode><FormattedPrice>$12.06</FormattedPrice></LowestNewPrice><LowestUsedPrice><Amount>1182</Amount><CurrencyCode>USD</CurrencyCode><FormattedPrice>$11.82</FormattedPrice></LowestUsedPrice><TotalNew>33</TotalNew><TotalUsed>20</TotalUsed><TotalCollectible>0</TotalCollectible><TotalRefurbished>0</TotalRefurbished></OfferSummary><EditorialReviews><EditorialReview><Source>Product
+      Description</Source><Content>&lt;P style="MARGIN: 0px"&gt;Finally, after a wait
+      of more than thirty-five years, the first part of Volume 4 is at last ready
+      for publication. Check out the boxed set that brings together Volumes 1 - 4A
+      in one elegant case, and offers the purchaser a $50 discount off the price of
+      buying the four volumes individually. &lt;/P&gt;  &lt;P style="MARGIN: 0px"&gt; &lt;/P&gt;  &lt;P
+      style="MARGIN: 0px"&gt;&lt;B&gt;The Art of Computer Programming, Volumes 1-4A
+      Boxed Set, 3/e &lt;/B&gt;&lt;/P&gt;  &lt;P style="MARGIN: 0px"&gt;ISBN: 0321751043 &lt;/P&gt;  &lt;P
+      style="MARGIN: 0px"&gt;  &lt;P style="MARGIN: 0px"&gt; &lt;/P&gt;  &lt;P style="MARGIN:
+      0px"&gt; &lt;/P&gt;  &lt;P style="MARGIN: 0px"&gt; &lt;/P&gt;&lt;B&gt;  &lt;P
+      style="MARGIN: 0px"&gt;Art of Computer Programming, Volume 1, Fascicle 1, The:
+      MMIX -- A RISC Computer for the New Millennium&lt;/P&gt;  &lt;P style="MARGIN:
+      0px"&gt;&lt;/B&gt; &lt;/P&gt;  &lt;P style="MARGIN: 0px"&gt;This multivolume
+      work on the analysis of algorithms has long been recognized as the definitive
+      description of classical computer science. The three complete volumes published
+      to date already comprise a unique and invaluable resource in programming theory
+      and practice. Countless readers have spoken about the profound personal influence
+      of Knuth''s writings. Scientists have marveled at the beauty and elegance of
+      his analysis, while practicing programmers have successfully applied his "cookbook"
+      solutions to their day-to-day problems. All have admired Knuth for the breadth,
+      clarity, accuracy, and good humor found in his books. &lt;/P&gt;  &lt;P style="MARGIN:
+      0px"&gt;To begin the fourth and later volumes of the set, and to update parts
+      of the existing three, Knuth has created a series of small books called fascicles,
+      which will be published t regular intervals. Each fascicle will encompass a
+      section or more of wholly new or evised material. Ultimately, the content of
+      these fascicles will be rolled up into the comprehensive, final versions of
+      each volume, and the enormous undertaking that began in 1962 will be complete.&lt;/P&gt;  &lt;P
+      style="MARGIN: 0px"&gt;&lt;/P&gt;&lt;B&gt;Volume 1, Fascicle 1&lt;/B&gt;   &lt;P
+      style="MARGIN: 0px"&gt;This first fascicle updates &lt;I&gt;The Art of Computer
+      Programming, Volume 1, Third Edition: Fundamental Algorithms&lt;/I&gt;, and
+      ultimately will become part of the fourth edition of that book. Specifically,
+      it provides a programmer''s introduction to the long-awaited MMIX, a RISC-based
+      computer that replaces the original MIX, and describes the MMIX assembly language.
+      The fascicle also presents new material on subroutines, coroutines, and interpretive
+      routines.&lt;/P&gt;&lt;BR&gt;&lt;BR&gt;</Content><IsLinkSuppressed>0</IsLinkSuppressed></EditorialReview></EditorialReviews></Item></Items></ItemLookupResponse>'
+    http_version: '1.1'

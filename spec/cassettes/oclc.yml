@@ -1,0 +1,619 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.worldcat.org:80/webservices/catalog/content//isbn/0201853922?servicelevel=full&wskey=<OCLC_WSKEY>
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 29 Sep 2011 21:50:48 GMT
+      server:
+      - Apache
+      transfer-encoding:
+      - chunked
+      content-type:
+      - text/xml;charset=utf-8
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<record
+      xmlns=\"http://www.loc.gov/MARC21/slim\">\n    <leader>00000cam a22000004a 4500</leader>\n
+      \   <controlfield tag=\"001\">57434413</controlfield>\n    <controlfield tag=\"008\">050113m20052006njua
+      \         001 0 eng  </controlfield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"010\">\n
+      \     <subfield code=\"a\">  2005041030</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"040\">\n      <subfield code=\"a\">DLC</subfield>\n
+      \     <subfield code=\"c\">DLC</subfield>\n      <subfield code=\"d\">UKM</subfield>\n
+      \     <subfield code=\"d\">VP@</subfield>\n      <subfield code=\"d\">YDXCP</subfield>\n
+      \     <subfield code=\"d\">BAKER</subfield>\n      <subfield code=\"d\">IG#</subfield>\n
+      \     <subfield code=\"d\">BTCTA</subfield>\n      <subfield code=\"d\">OCLCG</subfield>\n
+      \     <subfield code=\"d\">COA</subfield>\n      <subfield code=\"d\">STF</subfield>\n
+      \     <subfield code=\"d\">Z@L</subfield>\n      <subfield code=\"d\">YUS</subfield>\n
+      \     <subfield code=\"d\">UKMGB</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"015\">\n      <subfield code=\"a\">GBA500538</subfield>\n
+      \     <subfield code=\"2\">bnb</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"015\">\n      <subfield code=\"a\">GBA560459</subfield>\n
+      \     <subfield code=\"2\">bnb</subfield>\n    </datafield>\n    <datafield
+      ind1=\"7\" ind2=\" \" tag=\"016\">\n      <subfield code=\"a\">013073961</subfield>\n
+      \     <subfield code=\"2\">Uk</subfield>\n    </datafield>\n    <datafield ind1=\"7\"
+      ind2=\" \" tag=\"016\">\n      <subfield code=\"a\">013073960</subfield>\n      <subfield
+      code=\"2\">Uk</subfield>\n    </datafield>\n    <datafield ind1=\"7\" ind2=\"
+      \" tag=\"016\">\n      <subfield code=\"a\">013255539</subfield>\n      <subfield
+      code=\"2\">Uk</subfield>\n    </datafield>\n    <datafield ind1=\" \" ind2=\"
+      \" tag=\"019\">\n      <subfield code=\"a\">57380829</subfield>\n      <subfield
+      code=\"a\">637155772</subfield>\n    </datafield>\n    <datafield ind1=\" \"
+      ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0201853922 (v. 1, fasc.
+      1 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">9780201853926 (v. 1,
+      fasc. 1 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0201853930 (v. 4, fasc.
+      2 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">9780201853933 (v. 4,
+      fasc. 2 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0201853949 (v. 4, fasc.
+      3 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">9780201853940 (v. 4,
+      fasc. 3 : pbk. : alk. paper)</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0321335708 (v. 4, fasc.
+      4 : pbk. : alk paper)</subfield>\n    </datafield>\n    <datafield ind1=\" \"
+      ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">9780321335708 (v. 4, fasc.
+      4 : pbk. : alk paper)</subfield>\n    </datafield>\n    <datafield ind1=\" \"
+      ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0321534964 (v. 4, fasc.
+      0: pbk. : alk paper)</subfield>\n    </datafield>\n    <datafield ind1=\" \"
+      ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">9780321534965 (v. 4, fasc.
+      0: pbk. : alk paper)</subfield>\n    </datafield>\n    <datafield ind1=\" \"
+      ind2=\" \" tag=\"020\">\n      <subfield code=\"a\">0201038048 (v. 4A, pt. 1)</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"020\">\n      <subfield
+      code=\"a\">9780201038040 (v. 4A, pt. 1)</subfield>\n    </datafield>\n    <datafield
+      ind1=\"8\" ind2=\" \" tag=\"024\">\n      <subfield code=\"a\">2736430</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">YDXCP</subfield>\n      <subfield code=\"b\">1334137</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">YDXCP</subfield>\n      <subfield code=\"b\">1331382</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">YDXCP</subfield>\n      <subfield code=\"b\">1592549</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">IG#</subfield>\n      <subfield code=\"b\">0201853922</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">IG#</subfield>\n      <subfield code=\"b\">0201853930</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">IG#</subfield>\n      <subfield code=\"b\">0201853949</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">YDXCP</subfield>\n      <subfield code=\"b\">2280810</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield
+      code=\"a\">NZ1</subfield>\n      <subfield code=\"b\">9083707</subfield>\n    </datafield>\n
+      \   <datafield ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">IG#</subfield>\n
+      \     <subfield code=\"b\">9780201853926</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">IG#</subfield>\n
+      \     <subfield code=\"b\">9780201853933</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">IG#</subfield>\n
+      \     <subfield code=\"b\">9780201853940</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">IG#</subfield>\n
+      \     <subfield code=\"b\">9780321335708</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">AU@</subfield>\n
+      \     <subfield code=\"b\">000040941090</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">UNITY</subfield>\n
+      \     <subfield code=\"b\">009610480</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">UKWFT</subfield>\n
+      \     <subfield code=\"b\">0201853922</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">HR0</subfield>\n
+      \     <subfield code=\"b\">0201853922</subfield>\n    </datafield>\n    <datafield
+      ind1=\"1\" ind2=\" \" tag=\"029\">\n      <subfield code=\"a\">UKELG</subfield>\n
+      \     <subfield code=\"b\">0201853922</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"042\">\n      <subfield code=\"a\">pcc</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"0\" ind2=\"0\" tag=\"050\">\n      <subfield
+      code=\"a\">QA76.6</subfield>\n      <subfield code=\"b\">.K64 2005</subfield>\n
+      \   </datafield>\n    <datafield ind1=\"0\" ind2=\"0\" tag=\"082\">\n      <subfield
+      code=\"a\">005.1</subfield>\n      <subfield code=\"2\">22</subfield>\n    </datafield>\n
+      \   <datafield ind1=\"1\" ind2=\" \" tag=\"100\">\n      <subfield code=\"a\">Knuth,
+      Donald Ervin,</subfield>\n      <subfield code=\"d\">1938-</subfield>\n    </datafield>\n
+      \   <datafield ind1=\"1\" ind2=\"4\" tag=\"245\">\n      <subfield code=\"a\">The
+      art of computer programming /</subfield>\n      <subfield code=\"c\">Donald
+      E. Knuth.</subfield>\n    </datafield>\n    <datafield ind1=\" \" ind2=\" \"
+      tag=\"260\">\n      <subfield code=\"a\">Upper Saddle River, NJ :</subfield>\n
+      \     <subfield code=\"b\">Addison-Wesley,</subfield>\n      <subfield code=\"c\">2005-&lt;2006&gt;</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"300\">\n      <subfield
+      code=\"a\">v. &lt;1, fasc 1, 4, fasc. 2-4&gt; :</subfield>\n      <subfield
+      code=\"b\">ill. ;</subfield>\n      <subfield code=\"c\">25 cm.</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"500\">\n      <subfield
+      code=\"a\">Issued in fascicles. Consists of updates being published as the author
+      continues working towards the complete 4th ed. of The art of computer programming,
+      i.e. fascicles are supplements to the 3rd ed. in anticipation of the 4th ed.
+      which will condense the most important material into a single book.</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"500\">\n      <subfield
+      code=\"a\">Includes index.</subfield>\n    </datafield>\n    <datafield ind1=\"0\"
+      ind2=\"0\" tag=\"505\">\n      <subfield code=\"g\">v. 1, fasc. 1.</subfield>\n
+      \     <subfield code=\"t\">MMIX, a RISC computer for the new millennium --</subfield>\n
+      \     <subfield code=\"g\">v. 2.</subfield>\n      <subfield code=\"t\">Seminumerical
+      algorithms --</subfield>\n      <subfield code=\"g\">v. 3.</subfield>\n      <subfield
+      code=\"t\">Sorting and searching --</subfield>\n      <subfield code=\"g\">v.
+      4, fasc. 0.</subfield>\n      <subfield code=\"t\">Introduction to combinatorial
+      algorithms and boolean functions --</subfield>\n      <subfield code=\"g\">v.
+      4, fasc. 2.</subfield>\n      <subfield code=\"t\">Generating all tuples and
+      permutations --</subfield>\n      <subfield code=\"g\">v. 4, fasc. 3.</subfield>\n
+      \     <subfield code=\"t\">Generating all combinations and partitions --</subfield>\n
+      \     <subfield code=\"g\">v. 4, fasc. 4.</subfield>\n      <subfield code=\"t\">Generating
+      all trees : history of combinatorial generation.</subfield>\n    </datafield>\n
+      \   <datafield ind1=\" \" ind2=\"0\" tag=\"650\">\n      <subfield code=\"a\">Computer
+      programming.</subfield>\n    </datafield>\n    <datafield ind1=\" \" ind2=\"0\"
+      tag=\"650\">\n      <subfield code=\"a\">Computer algorithms.</subfield>\n    </datafield>\n
+      \   <datafield ind1=\"0\" ind2=\"8\" tag=\"776\">\n      <subfield code=\"i\">Online
+      version:</subfield>\n      <subfield code=\"a\">Knuth, Donald Ervin, 1938-</subfield>\n
+      \     <subfield code=\"t\">Art of computer programming.</subfield>\n      <subfield
+      code=\"d\">Upper Saddle River, NJ : Addison-Wesley, 2005-&lt;2006&gt;</subfield>\n
+      \     <subfield code=\"w\">(OCoLC)651979659</subfield>\n    </datafield>\n    <datafield
+      ind1=\"4\" ind2=\"1\" tag=\"856\">\n      <subfield code=\"3\">Vol. 4, fasc.
+      4:</subfield>\n      <subfield code=\"z\">Available to Stanford-affiliated users
+      at:</subfield>\n      <subfield code=\"z\">Safari Books Online</subfield>\n
+      \     <subfield code=\"u\">http://proquest.safaribooksonline.com/?uiCode=stanford&amp;xmlId=0321335708</subfield>\n
+      \     <subfield code=\"x\">eLoaderURL</subfield>\n      <subfield code=\"x\">sf4</subfield>\n
+      \     <subfield code=\"x\">sfocm85872487</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield code=\"a\">Baker &amp; Taylor</subfield>\n
+      \     <subfield code=\"b\">BKTY</subfield>\n      <subfield code=\"c\">19.99</subfield>\n
+      \     <subfield code=\"d\">19.99</subfield>\n      <subfield code=\"i\">0201853949</subfield>\n
+      \     <subfield code=\"n\">0006139372</subfield>\n      <subfield code=\"s\">active</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield
+      code=\"a\">Baker &amp; Taylor</subfield>\n      <subfield code=\"b\">BKTY</subfield>\n
+      \     <subfield code=\"c\">19.99</subfield>\n      <subfield code=\"d\">19.99</subfield>\n
+      \     <subfield code=\"i\">0201853922</subfield>\n      <subfield code=\"n\">0006139267</subfield>\n
+      \     <subfield code=\"s\">active</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield code=\"a\">Baker &amp; Taylor</subfield>\n
+      \     <subfield code=\"b\">BKTY</subfield>\n      <subfield code=\"c\">19.99</subfield>\n
+      \     <subfield code=\"d\">19.99</subfield>\n      <subfield code=\"i\">0201853930</subfield>\n
+      \     <subfield code=\"n\">0006139268</subfield>\n      <subfield code=\"s\">active</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield
+      code=\"a\">Baker and Taylor</subfield>\n      <subfield code=\"b\">BTCP</subfield>\n
+      \     <subfield code=\"n\">2005041030</subfield>\n    </datafield>\n    <datafield
+      ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield code=\"a\">Baker &amp; Taylor</subfield>\n
+      \     <subfield code=\"b\">BKTY</subfield>\n      <subfield code=\"c\">19.99</subfield>\n
+      \     <subfield code=\"d\">19.99</subfield>\n      <subfield code=\"i\">0321335708</subfield>\n
+      \     <subfield code=\"n\">0006613528</subfield>\n      <subfield code=\"s\">active</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield
+      code=\"a\">Ingram</subfield>\n      <subfield code=\"b\">INGR</subfield>\n      <subfield
+      code=\"n\">9780201853926</subfield>\n    </datafield>\n    <datafield ind1=\"
+      \" ind2=\" \" tag=\"938\">\n      <subfield code=\"a\">Baker &amp; Taylor</subfield>\n
+      \     <subfield code=\"b\">BKTY</subfield>\n      <subfield code=\"c\">19.99</subfield>\n
+      \     <subfield code=\"d\">19.99</subfield>\n      <subfield code=\"i\">0321534964</subfield>\n
+      \     <subfield code=\"n\">0007434574</subfield>\n      <subfield code=\"s\">active</subfield>\n
+      \   </datafield>\n    <datafield ind1=\" \" ind2=\" \" tag=\"938\">\n      <subfield
+      code=\"a\">YBP Library Services</subfield>\n      <subfield code=\"b\">YANK</subfield>\n
+      \     <subfield code=\"n\">2933219</subfield>\n    </datafield>\n  </record>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.worldcat.org:80/webservices/catalog/content/libraries//isbn/0201853922?oclcsymbol=AUM,BMU,BOS,BXM,BZM,MAS,MBB,MBU,MBW,MVA,MYG,NED,NHM,NLA,SMU,TFF,TFH,TFW,UB1,UB3,UB4,UBW,UCW,ULN,WEL,WQM,WCM,BOP,XON,GVU,SX1,US1,TFSBL,SBMBW,TUFTV&wskey=<OCLC_WSKEY>
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Thu, 29 Sep 2011 21:50:49 GMT
+      server:
+      - Apache
+      transfer-encoding:
+      - chunked
+      content-type:
+      - text/xml;charset=utf-8
+    body: ! '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+      <holdings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.loc.gov/standards/iso20775/N121_ISOholdings_v4.xsd">
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>AUM</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>University of Massachusetts Amherst</physicalLocation>
+
+      <physicalAddress>
+
+      <text>Amherst, MA 01003 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Ffcaw.library.umass.edu%3A8991%2FF%2F%3Ffunc%3Dfind-e%26find_scan_code%3DSCAN_STIDN%26local_base%3Dfcl01uma%26request%3D0201038099%26checksum%3Dddd66667316b807dd9f868cfe21f2a23&amp;title=University+of+Massachusetts+Amherst&amp;linktype=opac&amp;detail=AUM%3AUniversity+of+Massachusetts+Amherst%3AARL
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>BMU</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>University of Massachusetts at Boston</physicalLocation>
+
+      <physicalAddress>
+
+      <text>BOSTON, MA 02125 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Fvoyager.lib.umb.edu%2Fvwebv%2Fsearch%3FargType1%3Dany%26searchCode1%3DISBN%26combine2%3Dand%26searchArg2%3D%26argType2%3Dany%26searchCode2%3DGKEY%26combine3%3Dand%26searchArg3%3D%26argType3%3Dany%26searchCode3%3DGKEY%26recCount%3D10%26searchType%3D2%26page.search.search.button%3DSearch%26searchArg1%3D0201038099%26checksum%3D314d46afec349e3a6de219adcfd8d0e0&amp;title=University+of+Massachusetts+at+Boston&amp;linktype=opac&amp;detail=BMU%3AUniversity+of+Massachusetts+at+Boston%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>BOS</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>Boston University</physicalLocation>
+
+      <physicalAddress>
+
+      <text>BOSTON, MA 02215 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flibrary.bu.edu%2Fsearch%2F%3Fsearchscope%3D0%26searchtype%3Di%26searcharg%3D0201038099%26checksum%3Dc8dec3cd88f3aa063b2eb65870698d97&amp;title=Boston+University&amp;linktype=opac&amp;detail=BOS%3ABoston+University%3AARL
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>BXM</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>Boston College</physicalLocation>
+
+      <physicalAddress>
+
+      <text>CHESTNUT HILL, MA 02467 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flibrary.bc.edu%2FF%2F%3Ffunc%3Dfind-c%26ccl_term%3D020%3D0201038099%26checksum%3D3830d7c415435928d51d8f2e655649a9&amp;title=Boston+College&amp;linktype=opac&amp;detail=BXM%3ABoston+College%3AARL
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>MBB</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>Brandeis University Library</physicalLocation>
+
+      <physicalAddress>
+
+      <text>WALTHAM, MA 02454 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flouis.brandeis.edu%2FF%2F%3Ffunc%3Dfind-b%26find_code%3DISBN%26request%3D0201038099%26checksum%3Df3b83fb32b39dc23ecff465af83a0f49&amp;title=Brandeis+University+Library&amp;linktype=opac&amp;detail=MBB%3ABrandeis+University+Library%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>MYG</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>MIT Libraries</physicalLocation>
+
+      <physicalAddress>
+
+      <text>Cambridge, MA 02139 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flibrary.mit.edu%2FF%2F%3Ffunc%3Dfind-b%26find_code%3DISSN%26request%3D0201038099%26checksum%3D6e08eda4b7d0c2d78555d7c65446c5d4&amp;title=MIT+Libraries&amp;linktype=opac&amp;detail=MYG%3AMIT+Libraries%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>NED</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>Northeastern University</physicalLocation>
+
+      <physicalAddress>
+
+      <text>BOSTON, MA 02115 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2F129.10.107.106%2Fsearch%2Fi0201038099%26checksum%3D76fb25500bab683dc4dd9789c5822b68&amp;title=Northeastern+University&amp;linktype=opac&amp;detail=NED%3ANortheastern+University%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>NHM</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>UNH Durham</physicalLocation>
+
+      <physicalAddress>
+
+      <text>DURHAM, NH 03824 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flibrary.unh.edu%2Fsearch%2Fi0201038099%26checksum%3D249c78ccef539cf4cefece4f5e826971&amp;title=UNH+Durham&amp;linktype=opac&amp;detail=NHM%3AUNH+Durham%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>SMU</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>University of Massachusetts Dartmouth</physicalLocation>
+
+      <physicalAddress>
+
+      <text>North Dartmouth, MA 02747 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Fvoyager.lib.umassd.edu%2Fvwebv%2Fsearch%3FsearchCode%3DISBN%26searchType%3D1%26page.search.search.button%3DSearch%26searchArg%3D0201038048%26checksum%3D71ce9f8a1ae517ae2b9fff9ece2a4352&amp;title=University+of+Massachusetts+Dartmouth&amp;linktype=opac&amp;detail=SMU%3AUniversity+of+Massachusetts+Dartmouth%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      <holding>
+
+      <institutionIdentifier>
+
+      <value>TFW</value>
+
+      <typeOrSource>
+
+      <pointer>http://worldcat.org/registry/institutions/</pointer>
+
+      </typeOrSource>
+
+      </institutionIdentifier>
+
+      <physicalLocation>Tufts University - Tisch Library</physicalLocation>
+
+      <physicalAddress>
+
+      <text>MEDFORD, MA 02155 United States</text>
+
+      </physicalAddress>
+
+      <electronicAddress>
+
+      <text>http://www.worldcat.org/wcpa/oclc/57434413?page=frame&amp;url=http%3A%2F%2Flibrary.tufts.edu%2Fsearch%2Fi0201038099%26checksum%3Dbcd90f181417b719e59a75a391304385&amp;title=Tufts+University+-+Tisch+Library&amp;linktype=opac&amp;detail=TFW%3ATufts+University+-+Tisch+Library%3AAcademic
+      Library&amp;app=wcapi&amp;id=</text>
+
+      </electronicAddress>
+
+      <holdingSimple>
+
+      <copiesSummary>
+
+      <copiesCount>1</copiesCount>
+
+      </copiesSummary>
+
+      </holdingSimple>
+
+      </holding>
+
+      </holdings>
+
+'
+    http_version: '1.1'

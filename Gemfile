@@ -24,6 +24,9 @@ group :test do
   gem 'valid_attribute'
   gem 'factory_girl_rails'
   gem 'capybara'
+
+  gem 'vcr'
+  gem 'webmock'
 end
 
 
