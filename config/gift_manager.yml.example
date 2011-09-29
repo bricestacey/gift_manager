@@ -6,7 +6,7 @@ production:
   oclc:
     wskey:
     symbol_local: 'AAA'
-    symbol_remote: 'AAA, BBB, CCC'
+    symbol_remote: 'AAA,BBB,CCC'
 
 development:
   amazon:
