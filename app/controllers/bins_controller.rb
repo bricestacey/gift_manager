@@ -33,6 +33,7 @@ class BinsController < ApplicationController
     if @bin.save
       redirect_to @bin, :notice => 'You successfully updated the bin.'
     else
+      flash.now[:error] = 'There was a problem updating the bin.'
       render :edit
     end
   end
@@ -43,6 +44,7 @@ class BinsController < ApplicationController
     if @bin.save
       redirect_to @bin, :notice => 'You successfully added a bin.'
     else
+      flash.now[:error] = 'There was a problem adding the bin.'
       render :new
     end
   end
@@ -57,7 +59,8 @@ class BinsController < ApplicationController
       if @bin.save
         redirect_to bins_path, :notice => 'You successfully archived the bin.'
       else
-        redirect_to bins_path, :notice => 'There was a problem archiving the bin. Please try again.'
+        flash[:error] = 'There was a problem archiving the bin. Please try again.'
+        redirect_to bins_path
       end
     else
       flash[:error] = 'You must make a decision on every book before archiving a bin.'

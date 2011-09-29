@@ -32,7 +32,7 @@ class DonorsController < ApplicationController
     if @donor.save
       redirect_to @donor, :notice => 'You successfully updated the donor.'
     else
-      flash[:error] = 'There was a problem updating the donor.'
+      flash.now[:error] = 'There was a problem updating the donor.'
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class DonorsController < ApplicationController
     if @donor.save
       redirect_to @donor, :notice => 'You successfully added a donor.'
     else
-      flash[:error] = 'There was a problem adding the donor.'
+      flash.now[:error] = 'There was a problem adding the donor.'
       render :new
     end
   end
@@ -51,11 +51,15 @@ class DonorsController < ApplicationController
   def destroy
     @donor = Donor.find(params[:id])
 
-    if @donor.delete
-      redirect_to donors_path, :notice => 'You successfully deleted the donor.'
+    if @donor.books.empty? 
+      if @donor.delete
+        redirect_to donors_path, :notice => 'You successfully deleted the donor.'
+      else
+        # There was a problem
+      end
     else
-      flash[:error] = 'There was a problem deleting the donor.'
-      redirect_to donors_path
+      flash[:error] = 'You cannot delete a donor that has donated books. Try removing them first.'
+      redirect_to donor_path(@donor)
     end
   end
 end

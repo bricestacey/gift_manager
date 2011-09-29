@@ -19,10 +19,10 @@
           %th Trashed Books
       %tbody
         %tr
-          %th= Book.today.count
-          %th= Book.today.undecided.count
-          %th= Book.today.keep.count
-          %th= Book.today.trash.count
+          %th= @counts[:today]
+          %th= @counts[:today_undecided]
+          %th= @counts[:today_keep]
+          %th= @counts[:today_trash]
 
   %h3.panel-title All Time Stats
   .panel-contents
@@ -35,11 +35,10 @@
           %th Trashed Books
       %tbody
         %tr
-          %th= Book.count
-          %th= Book.undecided.count
-          %th= Book.keep.count
-          %th= Book.trash.count
-
+          %th= @counts[:total]
+          %th= @counts[:total_undecided]
+          %th= @counts[:total_keep]
+          %th= @counts[:total_trash]
 
 .panel.span-6.last
   .panel

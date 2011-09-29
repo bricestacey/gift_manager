@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, :notice => 'You successfully added a user.'
     else
+      flash.now[:error] = 'There was a problem adding the user.'
       render :new
     end
   end
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, :notice => 'You successfully updated the user.'
     else
+      flash.now[:error] = 'There was a problem updating the user.'
       render :edit
     end
 

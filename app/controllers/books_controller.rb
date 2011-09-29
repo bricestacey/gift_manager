@@ -48,6 +48,7 @@ class BooksController < ApplicationController
       flash[:notice] = 'You successfully added a book.'
       redirect_to :action => 'show', :id => @book.id
     else
+      flash.now[:error] = 'There was a problem adding the book.'
       render :new
     end
   end
@@ -66,9 +67,9 @@ class BooksController < ApplicationController
         else
           "You successfully updated the book."
       end
-
-      redirect_to :action => 'show', :id => @book.id
+      redirect_to action: 'show', id: @book.id
     else
+      flash.now[:error] = 'There was a problem updating the book.'
       render :edit
     end
   end
@@ -79,7 +80,7 @@ class BooksController < ApplicationController
       redirect_to :action => 'index'
     else
       flash[:error] = 'There was a problem removing the book. Please try again.'
-      redirect_to :action => 'index'
+      redirect_to @book
     end
   end
 
