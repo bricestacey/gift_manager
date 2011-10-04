@@ -55,8 +55,8 @@ class UsersController < ApplicationController
     if @user.destroy
       redirect_to users_path, :notice => 'You successfully deleted the user.'
     else
-      flash[:error] = 'There was a problem deleting the user. Please try again.'
-      redirect_to users_path
+      flash[:error] = 'There was a problem deleting the user.'
+      redirect_to @user
     end
   end
 end

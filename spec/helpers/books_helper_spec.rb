@@ -1,15 +1,22 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the BooksHelper. For example:
-#
-# describe BooksHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe BooksHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#book_thumbnail(book)" do
+    before(:each) do
+      @book = Factory.create(:book)
+    end
+    context "given the book doesn't have a thumbnail" do
+      before(:each) do
+        @book.update_attribute(:thumbnail, '')
+      end
+      it 'returns "No thumbnail"' do
+        book_thumbnail(@book).should eq("No thumbnail")
+      end
+    end
+    context "given the book has a thumbnail" do
+      it 'returns an image tag of the thumbnail' do
+        book_thumbnail(@book).should eq(image_tag(@book.thumbnail))
+      end
+    end
+  end
 end

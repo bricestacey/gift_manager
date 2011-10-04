@@ -182,8 +182,7 @@ describe BinsController do
           @bin.books << Factory.create(:book)
           delete :destroy, id: @bin.id
         end
-        it { assigns(:bin).should be_a(Bin) }
-        it { assigns(:bin).active.should be(true) }
+        it { assigns(:bin).should eq(@bin) }
         it { flash[:error].should eq('You must make a decision on every book before archiving a bin.') }
       end
     end

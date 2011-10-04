@@ -165,12 +165,25 @@ describe UsersController do
     context 'when signed in' do
       before(:each) do
         sign_in Factory.create(:user)
-        delete :destroy, id: @user.id
       end
-      it { assigns(:user).should be_a(User) }
-      it { assigns(:user).should_not be_persisted }
-      it { response.should redirect_to(users_path) }
-      it { flash[:notice].should eq('You successfully deleted the user.') }
+      context 'when successful' do
+        before(:each) do
+          delete :destroy, id: @user.id
+        end
+        it { assigns(:user).should be_a(User) }
+        it { assigns(:user).should_not be_persisted }
+        it { response.should redirect_to(users_path) }
+        it { flash[:notice].should eq('You successfully deleted the user.') }
+      end
+      context 'when unsuccessful' do
+        before(:each) do
+          User.any_instance.stub(:destroy).and_return(false)
+          delete :destroy, id: @user.id
+        end
+        it { assigns(:user).should be_persisted }
+        it { response.should redirect_to(@user) }
+        it { flash[:error].should eq('There was a problem deleting the user.') }
+      end
     end
     context 'when not signed in' do
       include_context 'a user is not signed in'

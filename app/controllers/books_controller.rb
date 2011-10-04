@@ -79,7 +79,7 @@ class BooksController < ApplicationController
       flash[:notice] = 'You successfully deleted the book.'
       redirect_to :action => 'index'
     else
-      flash[:error] = 'There was a problem removing the book. Please try again.'
+      flash[:error] = 'There was a problem deleting the book.'
       redirect_to @book
     end
   end

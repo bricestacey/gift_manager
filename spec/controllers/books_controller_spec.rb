@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BooksController do
-  use_vcr_cassette 'books_controller'
+  use_vcr_cassette 'books_controller', match_requests_on: [:method]
   def valid_attributes
     donor = Factory.create(:donor)
     bin   = Factory.create(:bin)
@@ -198,11 +198,24 @@ describe BooksController do
     context 'when signed in' do
       before(:each) do
         sign_in Factory.create(:user)
-        delete :destroy, id: @book.id
       end
-      it { assigns(:book).should be_a(Book) }
-      it { assigns(:book).should_not be_persisted }
-      it { flash[:notice].should eq('You successfully deleted the book.') }
+      context 'when successful' do
+        before(:each) do
+          delete :destroy, id: @book.id
+        end
+        it { assigns(:book).should be_a(Book) }
+        it { assigns(:book).should_not be_persisted }
+        it { flash[:notice].should eq('You successfully deleted the book.') }
+      end
+      context 'when unsuccessful' do
+        before(:each) do
+          Book.any_instance.stub(:destroy).and_return(false)
+          delete :destroy, id: @book.id
+        end
+        it { assigns(:book).should be_persisted }
+        it { response.should redirect_to(@book) }
+        it { flash[:error].should eq('There was a problem deleting the book.') }
+      end
     end
     context 'when not signed in' do
       include_context 'a user is not signed in'

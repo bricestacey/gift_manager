@@ -51,17 +51,10 @@ class BinsController < ApplicationController
 
   def destroy
     @bin = Bin.find(params[:id])
+    @bin.active = false
 
-    # Only archive a bin that has made a recommendation for each book
-    if @bin.books.undecided.count == 0
-      @bin.active = false
-
-      if @bin.save
-        redirect_to bins_path, :notice => 'You successfully archived the bin.'
-      else
-        flash[:error] = 'There was a problem archiving the bin. Please try again.'
-        redirect_to bins_path
-      end
+    if @bin.save
+      redirect_to bins_path, :notice => 'You successfully archived the bin.'
     else
       flash[:error] = 'You must make a decision on every book before archiving a bin.'
       redirect_to bins_path

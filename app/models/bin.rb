@@ -6,4 +6,11 @@ class Bin < ActiveRecord::Base
   scope :inactive, where(:active => false)
 
   SCOPES = [:active, :inactive]
+
+  before_save :ensure_books_decided, unless: :active?
+
+  private
+  def ensure_books_decided
+    return false if books.undecided.count > 0
+  end
 end
