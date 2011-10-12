@@ -33,11 +33,11 @@ Feature: Bins
       | text |
       | Home |
 
-  Scenario: The index should have facets to change the scope
+  Scenario: The index should have facets to change the faceting
     Then I should see an "Active (3)" facet is selected
     Then I should see an "Inactive (3)" facet
 
-  Scenario: The default scope should be the active bins
+  Scenario: The default facet should be the active bins
     Then I should see the following bins:
       | name                   | total | undecided | keep | trash |
       | Truck #2, top shelf    | 2     | 2         | 0    | 0     |

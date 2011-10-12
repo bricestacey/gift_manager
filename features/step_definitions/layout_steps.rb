@@ -9,11 +9,12 @@ Then /^I should see the following breadcrumbs$/ do |crumbs|
 end
 
 Then /^I should see an? "([^"]*)" facet is selected$/ do |facet|
-  Then %{I should see "#{facet}" within ".primary" within ".scope"}
+  Then %{I should see "#{facet}" within "span" within ".facets"}
+  And  %{I should not see "#{facet}" within "a" within ".facets"}
 end
 
 Then /^I should see an? "([^"]*)" facet$/ do |facet|
-  Then %{I should see "#{facet}" within ".scope"}
+  Then %{I should see "#{facet}" within ".facets"}
 end
 
 Then /^I should see the following action items:$/ do |table|

@@ -1,0 +1,45 @@
+@mixin clearfix {
+  display: inline-block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+@import "bourbon";
+@import "formtastic";
+@import "layout";
+@import "blueprint/screen";
+@import "buttons/css3buttons";
+
+ul.facets {
+  margin: 0 0 1em 0;
+  padding: 0;
+  display: inline;
+  height: 100%;
+
+  li {
+    display: inline;
+    margin-right: 4px;
+    padding: 9px 0;
+    font-size: 1.0em;
+    position: relative;
+
+
+    span {
+      @include button(simple, #DFDFDF);
+      font-weight: bold;
+    }
+    a {
+      @include button(simple, #ECECEC);
+      text-decoration: none;
+      color: #000;
+      font-weight: normal;
+    }
+  }
+
+  @include clearfix;
+}

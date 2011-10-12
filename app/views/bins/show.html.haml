@@ -29,19 +29,19 @@
     %p.books-donated
       %b Books Donated
       %br
-      = link_to @bin.books.count, books_path(scope: 'all', :bin => @bin.id)
+      = link_to @bin.books.count, books_path(bin: @bin.id)
 
     %p.books-undecided
       %b Books Undecided
       %br
-      = link_to @bin.books.undecided.count, books_path(scope: 'undecided', :bin => @bin.id)
+      = link_to @bin.books.undecided.count, books_path(recommendation: 'undecided', bin: @bin.id)
 
     %p.books-keep
       %b Books Kept
       %br
-      = link_to @bin.books.keep.count, books_path(scope: 'keep', :bin => @bin.id)
+      = link_to @bin.books.keep.count, books_path(recommendation: 'keep', bin: @bin.id)
 
     %p.books-trash
       %b Books Trashed
       %br
-      = link_to @bin.books.trash.count, books_path(scope: 'trash', :bin => @bin.id)
+      = link_to @bin.books.trash.count, books_path(recommendation: 'trash', bin: @bin.id)

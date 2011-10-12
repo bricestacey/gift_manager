@@ -2,7 +2,12 @@ class BinsController < ApplicationController
   respond_to :html
 
   def index
-    @bins = Bin.order(:created_at).send(current_scope).page params[:page]
+    @bins = Bin.order(:created_at).page params[:page]
+    if params[:active]
+      @bins = @bins.where(active: params[:active] == "true")
+    else
+      @bins = @bins.where(active: true)
+    end
 
     respond_with @bins
   end
@@ -59,10 +64,5 @@ class BinsController < ApplicationController
       flash[:error] = 'You must make a decision on every book before archiving a bin.'
       redirect_to bins_path
     end
-  end
-
-  private
-  def current_scope
-    Bin::SCOPES.include?(params[:scope].try(:to_sym)) ? params[:scope] : 'active'
   end
 end

@@ -7,14 +7,11 @@
 - content_for :action_items do
   = link_to 'Add Book', new_book_path, :class => 'button'
 
-.scope
-  = link_to "All (#{Book.count})", books_path, :class => "button pill#{(params[:scope] == 'all' or params[:scope].nil?) ? ' primary' : ''}"
-  = link_to "Undecided (#{Book.undecided.count})", books_path(:recommendation => 'undecided'), :class => "button pill#{(params[:recommendation] == 'undecided') ? ' primary' : ''}"
-  = link_to "Keep (#{Book.keep.count})", books_path(:recommendation => 'keep'), :class => "button pill#{(params[:recommendation] == 'keep') ? ' primary' : ''}"
-  = link_to "Trash (#{Book.trash.count})", books_path(:recommendation => 'trash'), :class => "button pill#{(params[:recommendation] == 'trash') ? ' primary' : ''}"
-
-%br
-%br
+%ul.facets
+  %li= link_to_book_facet(:all)
+  %li= link_to_book_facet(:undecided)
+  %li= link_to_book_facet(:keep)
+  %li= link_to_book_facet(:trash)
 
 %table
   %thead

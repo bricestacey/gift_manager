@@ -28,7 +28,7 @@ Feature: Books
       | Walden      | Thoreau | 1854      | foo       |
       | AWOCAMR     | Thoreau | 1849      | bar       |
 
-  Scenario: There should be options to scope the table
+  Scenario: There should be options to facet the table
     Then I should see an "All" facet is selected
     And  I should see an "Undecided" facet
     And  I should see a "Keep" facet

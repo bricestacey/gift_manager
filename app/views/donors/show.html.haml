@@ -48,19 +48,19 @@
   %p.books-donated
     %b Books Donated
     %br
-    = link_to @donor.books.count, books_path(:scope => 'all', :donor => @donor.id)
+    = link_to @donor.books.count, books_path(:recommendation => 'all', :donor => @donor.id)
 
   %p.books-undecided
     %b Undecided Books
     %br
-    = link_to @donor.books.undecided.count, books_path(:scope => 'undecided', :donor => @donor.id)
+    = link_to @donor.books.undecided.count, books_path(:recommendation => 'undecided', :donor => @donor.id)
 
   %p.books-keep
     %b Books Kept
     %br
-    = link_to @donor.books.keep.count, books_path(:scope => 'keep', :donor => @donor.id)
+    = link_to @donor.books.keep.count, books_path(:recommendation => 'keep', :donor => @donor.id)
 
   %p.books-trash
     %b Books Trashed
     %br
-    = link_to @donor.books.trash.count, books_path(:scope => 'trash', :donor => @donor.id)
+    = link_to @donor.books.trash.count, books_path(:recommendation => 'trash', :donor => @donor.id)
