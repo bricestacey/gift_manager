@@ -2,6 +2,7 @@ production:
   amazon:
     access_key: 
     secret_key:
+    associate_tag:
   
   oclc:
     wskey:
@@ -12,21 +13,20 @@ development:
   amazon:
     access_key:
     secret_key:
+    associate_tag:
   
   oclc:
     wskey:
     symbol_local: 
     symbol_remote: 
 
-
 test:
   amazon:
     access_key:
     secret_key:
+    associate_tag:
   
   oclc:
     wskey:
     symbol_local: 
     symbol_remote:
-
-
