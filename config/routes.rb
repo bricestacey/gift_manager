@@ -2,7 +2,9 @@ GiftManager::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => 'signin', :sign_out => 'signout'}
 
   resources :users
-  resources :books
+  resources :books do
+    put "recommend", on: :member, controller: "books/recommendation", action: :update, as: 'recommend'
+  end
   resources :bins
   resources :donors
 

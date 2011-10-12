@@ -57,6 +57,12 @@ Feature: Books
       | title       | author  | published | publisher |
       | Walden      | Thoreau | 1854      | foo       |
 
+  Scenario: Making a recommendation on a book
+    When I show the book "Walden"
+    And  I follow "Keep"
+    Then I should be on the page for the book with title "Walden"
+    And  I should see "The book's recommendation has been updated to: keep."
+
   # New
   Scenario: Adding a new book
     When I follow "Add Book"

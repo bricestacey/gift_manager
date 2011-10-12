@@ -1,40 +1,28 @@
 class BooksController < ApplicationController
-  # Any implementing class must implement a `find_context` method to set `@context` to the 
-  # appropriate ActiveRecord::Relation.
-  def find_context
-    @context = Book
-  end
-
-  before_filter :find_context
-
   respond_to    :html
-  before_filter :find_resource, :only => [:show, :edit, :update, :destroy]
-  hide_action   :current_scope, :find_resource
+  before_filter :find_book, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @context = @context.page params[:page]
-    @context = @context.send(current_scope) if current_scope
+    @books = Book.page params[:page]
 
-    # TODO this is ugly, but works for now to ensure same functionality.
-    @context = @context.where(donor_id: params[:donor]) if params[:donor]
-    @context = @context.where(bin_id: params[:bin]) if params[:bin]
-
-
-    @books = @context
+    # Allow filtering by donor, bin, or recommendation
+    @books = @books.where(donor_id: params[:donor]) if params[:donor]
+    @books = @books.where(bin_id: params[:bin]) if params[:bin]
+    @books = @books.where(recommendation: params[:recommendation]) if params[:recommendation]
   end
 
   def show
   end
 
   def new
-    @book = @context.new
+    @book = Book.new
   end
 
   def edit
   end
 
   def create
-    @book = @context.new(params[:book])
+    @book = Book.new(params[:book])
 
     # Save the last donor to speed up the process
     session[:donor_id] = params[:book][:donor_id]
@@ -57,16 +45,7 @@ class BooksController < ApplicationController
     @book.attributes = params[:book]
 
     if @book.save
-      flash[:notice] = case params[:book][:recommendation]
-        when 'keep'
-          "The book's recommendation has been updated to: keep."
-        when 'trash'
-          "The book's recommendation has been updated to: trash."
-        when 'undecided'
-          "The book's recommendation has been updated to: undecided."
-        else
-          "You successfully updated the book."
-      end
+      flash[:notice] = "You successfully updated the book."
       redirect_to action: 'show', id: @book.id
     else
       flash.now[:error] = 'There was a problem updating the book.'
@@ -85,11 +64,7 @@ class BooksController < ApplicationController
   end
 
   private
-  def find_resource
-    @book = @context.find(params[:id])
-  end
-
-  def current_scope
-    Book::SCOPES.include?(params[:scope].try(:to_sym)) ? params[:scope] : nil
+  def find_book
+    @book = Book.find(params[:id])
   end
 end

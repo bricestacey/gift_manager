@@ -8,10 +8,10 @@
   = link_to 'Add Book', new_book_path, :class => 'button'
 
 .scope
-  = link_to "All (#{Book.count})", books_path(:scope => 'all'), :class => "button pill#{(params[:scope] == 'all' or params[:scope].nil?) ? ' primary' : ''}"
-  = link_to "Undecided (#{Book.undecided.count})", books_path(:scope => 'undecided'), :class => "button pill#{(params[:scope] == 'undecided') ? ' primary' : ''}"
-  = link_to "Keep (#{Book.keep.count})", books_path(:scope => 'keep'), :class => "button pill#{(params[:scope] == 'keep') ? ' primary' : ''}"
-  = link_to "Trash (#{Book.trash.count})", books_path(:scope => 'trash'), :class => "button pill#{(params[:scope] == 'trash') ? ' primary' : ''}"
+  = link_to "All (#{Book.count})", books_path, :class => "button pill#{(params[:scope] == 'all' or params[:scope].nil?) ? ' primary' : ''}"
+  = link_to "Undecided (#{Book.undecided.count})", books_path(:recommendation => 'undecided'), :class => "button pill#{(params[:recommendation] == 'undecided') ? ' primary' : ''}"
+  = link_to "Keep (#{Book.keep.count})", books_path(:recommendation => 'keep'), :class => "button pill#{(params[:recommendation] == 'keep') ? ' primary' : ''}"
+  = link_to "Trash (#{Book.trash.count})", books_path(:recommendation => 'trash'), :class => "button pill#{(params[:recommendation] == 'trash') ? ' primary' : ''}"
 
 %br
 %br
