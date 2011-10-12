@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 
     unless @book.isbn.blank?
       @book.attributes = OCLC.attributes_for_isbn(@book.isbn)
-      @book.attributes = AMZN.find_by_isbn(@book.isbn)
+      @book.attributes = AMZN.attributes_for_isbn(@book.isbn)
     end
 
     if @book.save

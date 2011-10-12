@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe AMZN do
-  describe ".find_by_isbn" do
+  describe ".attributes_for_isbn" do
     context 'given the Amazon Product API is responding' do
-      it "should return the proper price" do
+      it "should return the price and thumbnail" do
         # VCR strategy is to have a single request on this cassette and have a
         # lenient request match. Otherwise, would need to implement a complicated
         # regular expression.
         VCR.use_cassette 'amzn', match_requests_on: [:method] do
           isbn = '0201853922'
-          attributes = AMZN.find_by_isbn(isbn)
+          attributes = AMZN.attributes_for_isbn(isbn)
 
           attributes.should eq({
             :price_amazon => '$19.99',
@@ -25,7 +25,7 @@ describe AMZN do
         end
       end
       it "returns an empty hash" do
-        AMZN.find_by_isbn('0201853922').should eq({})
+        AMZN.attributes_for_isbn('0201853922').should eq({})
       end
     end
   end
