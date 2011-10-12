@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     session[:donor_id] = params[:book][:donor_id]
 
     unless @book.isbn.blank?
-      @book.attributes = OCLC.find_by_isbn(@book.isbn)
+      @book.attributes = OCLC.attributes_for_isbn(@book.isbn)
       @book.attributes = AMZN.find_by_isbn(@book.isbn)
     end
 
