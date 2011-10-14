@@ -89,7 +89,7 @@ bin.books.create({
   "price_amazon"=>"$45.00",
   "published"=>"1978",
   "publisher"=>"Englewood Cliffs, N.J. : Prentice-Hall, c1978.",
-  "recommendation"=>"toss",
+  "recommendation"=>"trash",
   "series"=>"Prentice-Hall software series",
   "thumbnail"=>"http://ecx.images-amazon.com/images/I/41NH37S7YRL._SL160_.jpg",
   "title"=>"The C programming language /"
@@ -173,7 +173,7 @@ bin.books.create({
   "price_amazon"=>"$29.95",
   "published"=>"1994",
   "publisher"=>"Sebastopol, CA : O'Reilly & Associates, 1994.",
-  "recommendation"=>"toss",
+  "recommendation"=>"trash",
   "series"=>"Nutshell handbook",
   "thumbnail"=>"http://ecx.images-amazon.com/images/I/51aZJfhlK5L._SL160_.jpg",
   "title"=>"Managing Internet information services /"
