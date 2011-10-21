@@ -1,14 +1,14 @@
 class CreateDonors < ActiveRecord::Migration
   def self.up
     create_table :donors do |t|
-      t.string :name
-      t.string :phone
-      t.string :email
-      t.string :line1
-      t.string :line2
-      t.string :city
-      t.string :state
-      t.string :zip
+      t.text :name
+      t.text :phone
+      t.text :email
+      t.text :line1
+      t.text :line2
+      t.text :city
+      t.text :state
+      t.text :zip
 
       t.timestamps
     end

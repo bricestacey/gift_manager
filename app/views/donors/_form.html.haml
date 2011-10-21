@@ -1,12 +1,12 @@
 = semantic_form_for @donor do |form|
   = form.inputs do
-    = form.input :name
-    = form.input :phone
-    = form.input :email
-    = form.input :line1, :label => 'Address Line 1'
-    = form.input :line2, :label => 'Address Line 2'
-    = form.input :city
-    = form.input :state
-    = form.input :zip, :label => 'Zip Code'
+    = form.input :name, :as => 'string'
+    = form.input :phone, :as => 'string'
+    = form.input :email, :as => 'string'
+    = form.input :line1, :label => 'Address Line 1', :as => 'string'
+    = form.input :line2, :label => 'Address Line 2', :as => 'string'
+    = form.input :city, :as => 'string'
+    = form.input :state, :as => 'string'
+    = form.input :zip, :label => 'Zip Code', :as => 'string'
   = form.buttons do
     = form.commit_button :label => (@donor.new_record?) ? 'Add Donor' : 'Update Donor'

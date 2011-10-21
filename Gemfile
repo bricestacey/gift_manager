@@ -12,10 +12,10 @@ gem 'haml'
 gem 'kaminari'
 gem 'formtastic'
 
+gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'sqlite3'
 end
 
 group :test do
