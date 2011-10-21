@@ -14,25 +14,25 @@
 ActiveRecord::Schema.define(:version => 20110523195604) do
 
   create_table "bins", :force => true do |t|
-    t.string   "name"
+    t.text     "name"
     t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "books", :force => true do |t|
-    t.string   "isbn"
-    t.string   "title"
-    t.string   "author"
-    t.string   "published"
-    t.string   "publisher"
-    t.string   "series"
-    t.string   "call_number"
+    t.text     "isbn"
+    t.text     "title"
+    t.text     "author"
+    t.text     "published"
+    t.text     "publisher"
+    t.text     "series"
+    t.text     "call_number"
     t.boolean  "held_local"
-    t.string   "held_remote"
-    t.string   "price_amazon"
-    t.string   "thumbnail"
-    t.string   "recommendation", :default => "undecided"
+    t.text     "held_remote"
+    t.text     "price_amazon"
+    t.text     "thumbnail"
+    t.text     "recommendation", :default => "undecided"
     t.integer  "donor_id"
     t.integer  "bin_id"
     t.datetime "created_at"
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(:version => 20110523195604) do
   end
 
   create_table "donors", :force => true do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "line1"
-    t.string   "line2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
+    t.text     "name"
+    t.text     "phone"
+    t.text     "email"
+    t.text     "line1"
+    t.text     "line2"
+    t.text     "city"
+    t.text     "state"
+    t.text     "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
