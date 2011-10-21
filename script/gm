@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+require "thor"
+
+class GM < Thor
+  include Thor::Actions
+
+  desc "install", "setup the gift manager"
+  def install
+    create_file(File.expand_path('gift_manager.yml', 'config')) do
+      <<-EOS
+base: &base
+  amazon:
+    access_key: #{ask("What is your Amazon access key? ")}
+    secret_key: #{ask("Enter Amazon secret key: ")}
+    associate_tag: #{ask("Enter Amazon associate tag: ")}
+
+  oclc:
+    wskey: #{ask("Enter OCLC weskey: ")}
+    symbol_local: #{ask("Enter local OCLC code: ")}
+    symbol_remote: #{ask("Enter list of remote OCLC codes: ")}
+
+production:
+  <<: *base
+development:
+  <<: *base
+test: &TEST
+  <<: *base
+cucumber:
+  <<: *TEST
+      EOS
+    end
+
+    create_file(File.expand_path('database.yml', 'config')) do
+      <<-EOS
+base: &base
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: #{ask('Database username')}
+  password: #{ask('Database password')}
+
+production:
+  database: gift_manager_production
+  <<: *base
+
+development:
+  database: gift_manager_development
+  <<: *base
+
+test:
+  database: gift_manager_test
+  <<: *base
+      EOS
+    end
+  end
+end
+
+GM.start

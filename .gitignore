@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
-config/gift_manager.yml
 *.swp
 public/coverage/**
+config/gift_manager.yml
+config/database.yml
