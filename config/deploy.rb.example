@@ -1,0 +1,59 @@
+require "bundler/capistrano"
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+
+set :application, "Gift Manager"
+set :repository,  "https://github.com/bricestacey/gift_manager"
+
+set :scm, :git
+set :branch, "master"
+
+role :web, "example.com"                          # Your HTTP server, Apache/etc
+role :app, "example.com"                          # This may be the same as your `Web` server
+role :db,  "example.com", :primary => true        # This is where Rails migrations will run
+
+set :deploy_to, '/path/to/gift_manager'
+set :deploy_via, :remote_cache
+
+namespace :deploy do
+
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+
+  namespace :gm do
+
+    desc <<-DESC
+      Creates gift_manager.yml and database.yml in shared path.
+
+      Runs `script/gm install` if either of the files do not yet exist.
+
+      When this recipe is loaded, gm:setup is automatically configured \
+      to be invoked after deploy:setup. You can skip this task setting \
+      the variable :skip_db_setup to true.
+    DESC
+    task :setup, except: { no_release: true } do
+      run 'script/gm install' unless File.exists?('config/gift_manager.yml') && File.exists?('config/database.yml')
+
+      gm_file = File.open('config/gift_manager.yml').read
+      db_file = File.open('config/database.yml').read
+
+      run "mkdir -p #{shared_path}/config"
+      put gm_file, "#{shared_path}/config/gift_manager.yml"
+      put db_file, "#{shared_path}/config/database.yml"
+    end
+
+    desc <<-DESC
+      [internal] Updates the symlink for gift_manager.yml and database.yml \
+      file to the just deployed release
+    DESC
+    task :symlink, except: { no_release: true } do
+      run "ln -nfs #{shared_path}/config/gift_manager.yml #{release_path}/config/gift_manager.yml"
+      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    end
+  end
+end
+
+after "deploy:setup", "deploy:gm:setup"
+after "deploy:finalize_update", "deploy:gm:symlink"

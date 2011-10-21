@@ -6,3 +6,4 @@ tmp/
 public/coverage/**
 config/gift_manager.yml
 config/database.yml
+config/deploy.rb
