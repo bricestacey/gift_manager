@@ -2,8 +2,8 @@ class Bin < ActiveRecord::Base
   has_many :books
   validates :name, presence: true
 
-  scope :active, where(:active => true)
-  scope :inactive, where(:active => false)
+  scope :active, where(active: true)
+  scope :inactive, where(active: false)
 
   before_save :ensure_books_decided, unless: :active?
 

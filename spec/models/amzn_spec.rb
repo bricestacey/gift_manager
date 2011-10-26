@@ -12,8 +12,8 @@ describe AMZN do
           attributes = AMZN.attributes_for_isbn(isbn)
 
           attributes.should eq({
-            :price_amazon => '$19.99',
-            :thumbnail => 'http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg'
+            price_amazon: '$19.99',
+            thumbnail: 'http://ecx.images-amazon.com/images/I/51C7CVG94XL._SL160_.jpg'
           })
         end
       end

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   respond_to    :html
-  before_filter :find_book, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.page params[:page]
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
 
     if @book.save
       flash[:notice] = 'You successfully added a book.'
-      redirect_to :action => 'show', :id => @book.id
+      redirect_to action: 'show', id: @book.id
     else
       flash.now[:error] = 'There was a problem adding the book.'
       render :new
@@ -56,7 +56,7 @@ class BooksController < ApplicationController
   def destroy
     if @book.destroy
       flash[:notice] = 'You successfully deleted the book.'
-      redirect_to :action => 'index'
+      redirect_to action: 'index'
     else
       flash[:error] = 'There was a problem deleting the book.'
       redirect_to @book

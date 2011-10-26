@@ -9,7 +9,7 @@ set :branch, "master"
 
 role :web, "example.com"                          # Your HTTP server, Apache/etc
 role :app, "example.com"                          # This may be the same as your `Web` server
-role :db,  "example.com", :primary => true        # This is where Rails migrations will run
+role :db,  "example.com", primary: true        # This is where Rails migrations will run
 
 set :deploy_to, '/path/to/gift_manager'
 set :deploy_via, :remote_cache
@@ -18,7 +18,7 @@ namespace :deploy do
 
   task :start do ; end
   task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
+  task :restart, roles: :app, except: { no_release: true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 

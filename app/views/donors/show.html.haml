@@ -5,7 +5,7 @@
   = @donor.name
 
 - content_for :action_items do
-  = link_to 'Edit Donor', edit_donor_path(@donor), :class => 'button'
+  = link_to 'Edit Donor', edit_donor_path(@donor), class: 'button'
 
 
 %section.span-17.colborder
@@ -48,24 +48,24 @@
   %p.books-donated
     %b Books Donated
     %br
-    = link_to @donor.books.count, books_path(:recommendation => 'all', :donor => @donor.id)
+    = link_to @donor.books.count, books_path(recommendation: 'all', donor: @donor.id)
 
   %p.books-undecided
     %b Undecided Books
     %br
-    = link_to @donor.books.undecided.count, books_path(:recommendation => 'undecided', :donor => @donor.id)
+    = link_to @donor.books.undecided.count, books_path(recommendation: 'undecided', donor: @donor.id)
 
   %p.books-keep
     %b Books Kept
     %br
-    = link_to @donor.books.keep.count, books_path(:recommendation => 'keep', :donor => @donor.id)
+    = link_to @donor.books.keep.count, books_path(recommendation: 'keep', donor: @donor.id)
 
   %p.books-trash
     %b Books Trashed
     %br
-    = link_to @donor.books.trash.count, books_path(:recommendation => 'trash', :donor => @donor.id)
+    = link_to @donor.books.trash.count, books_path(recommendation: 'trash', donor: @donor.id)
 
   %p.books-sell
     %b Books Sold
     %br
-    = link_to @donor.books.sell.count, books_path(:recommendation => 'sell', :donor => @donor.id)
+    = link_to @donor.books.sell.count, books_path(recommendation: 'sell', donor: @donor.id)

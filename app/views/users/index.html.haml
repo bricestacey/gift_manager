@@ -5,7 +5,7 @@
   = breadcrumbs('Home' => root_path)
 
 - content_for :action_items do
-  = link_to 'Add User', new_user_path, :class => 'button'
+  = link_to 'Add User', new_user_path, class: 'button'
 
 %table
   %thead
@@ -15,12 +15,12 @@
       %th Actions
   %tbody
     - @users.each do |user|
-      %tr{:class => "user-#{user.id}"}
+      %tr{class: "user-#{user.id}"}
         %td= user.email
         %td= user.created_at
         %td 
           = link_to 'Show', user
           = link_to 'Edit', edit_user_path(user)
-          = link_to 'Delete', user, :method => :delete, :confirm => 'Are you sure you want to delete this user?'
+          = link_to 'Delete', user, method: :delete, confirm: 'Are you sure you want to delete this user?'
 
 = paginate @users

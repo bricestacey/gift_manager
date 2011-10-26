@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to @user, :notice => 'You successfully added a user.'
+      redirect_to @user, notice: 'You successfully added a user.'
     else
       flash.now[:error] = 'There was a problem adding the user.'
       render :new
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user.attributes = params[:user]
 
     if @user.save
-      redirect_to @user, :notice => 'You successfully updated the user.'
+      redirect_to @user, notice: 'You successfully updated the user.'
     else
       flash.now[:error] = 'There was a problem updating the user.'
       render :edit
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.destroy
-      redirect_to users_path, :notice => 'You successfully deleted the user.'
+      redirect_to users_path, notice:'You successfully deleted the user.'
     else
       flash[:error] = 'There was a problem deleting the user.'
       redirect_to @user

@@ -7,9 +7,7 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
-  User.new(:email => email,
-           :password => password,
-           :password_confirmation => password).save!
+  User.create(email: email, password: password, password_confirmation: password)
 end
 
 Given /^I am a new, authenticated user$/ do

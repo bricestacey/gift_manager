@@ -36,7 +36,7 @@ class BinsController < ApplicationController
     @bin.attributes = params[:bin]
 
     if @bin.save
-      redirect_to @bin, :notice => 'You successfully updated the bin.'
+      redirect_to @bin, notice: 'You successfully updated the bin.'
     else
       flash.now[:error] = 'There was a problem updating the bin.'
       render :edit
@@ -47,7 +47,7 @@ class BinsController < ApplicationController
     @bin = Bin.new(params[:bin])
 
     if @bin.save
-      redirect_to @bin, :notice => 'You successfully added a bin.'
+      redirect_to @bin, notice: 'You successfully added a bin.'
     else
       flash.now[:error] = 'There was a problem adding the bin.'
       render :new
@@ -59,7 +59,7 @@ class BinsController < ApplicationController
     @bin.active = false
 
     if @bin.save
-      redirect_to bins_path, :notice => 'You successfully archived the bin.'
+      redirect_to bins_path, notice: 'You successfully archived the bin.'
     else
       flash[:error] = 'You must make a decision on every book before archiving a bin.'
       redirect_to bins_path

@@ -30,7 +30,7 @@ class DonorsController < ApplicationController
     @donor.attributes = params[:donor]
 
     if @donor.save
-      redirect_to @donor, :notice => 'You successfully updated the donor.'
+      redirect_to @donor, notice: 'You successfully updated the donor.'
     else
       flash.now[:error] = 'There was a problem updating the donor.'
       render :edit
@@ -41,7 +41,7 @@ class DonorsController < ApplicationController
     @donor = Donor.new(params[:donor])
 
     if @donor.save
-      redirect_to @donor, :notice => 'You successfully added a donor.'
+      redirect_to @donor, notice: 'You successfully added a donor.'
     else
       flash.now[:error] = 'There was a problem adding the donor.'
       render :new
@@ -53,7 +53,7 @@ class DonorsController < ApplicationController
 
     if @donor.books.empty? 
       if @donor.delete
-        redirect_to donors_path, :notice => 'You successfully deleted the donor.'
+        redirect_to donors_path, notice: 'You successfully deleted the donor.'
       else
         # There was a problem
       end

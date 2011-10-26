@@ -1,5 +1,5 @@
 class OCLC
-  @@client = WCAPI::Client.new :wskey => APP_CONFIG['oclc']['wskey']
+  @@client = WCAPI::Client.new wskey: APP_CONFIG['oclc']['wskey']
   
   # Return a hash of both bibliographic and location attributes for a given `isbn`
   def self.attributes_for_isbn(isbn)
@@ -11,7 +11,7 @@ class OCLC
 
   # Return the location attributes for a given `isbn`
   def self.location_attributes_for_isbn(isbn)
-    locations = @@client.GetLocations(:id => isbn, :oclcsymbol => APP_CONFIG['oclc']['symbol_remote']).locations
+    locations = @@client.GetLocations(id: isbn, oclcsymbol: APP_CONFIG['oclc']['symbol_remote']).locations
 
     {}.tap do |result|
       result[:held_local] = locations.map {|l| l.code}.include?(APP_CONFIG['oclc']['symbol_local'])
@@ -21,7 +21,7 @@ class OCLC
 
   # Return the bibliographic attributes for a given `isbn`
   def self.bib_attributes_for_isbn(isbn)
-    record = @@client.GetRecord(:id => isbn, :servicelevel => 'full').record
+    record = @@client.GetRecord(id: isbn, servicelevel: 'full').record
 
     {}.tap do |result|
       if record

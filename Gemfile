@@ -47,7 +47,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "bourbon"#, git: 'https://github.com/thoughtbot/bourbon.git'
+gem 'bourbon'
 
 gem 'thor'
 

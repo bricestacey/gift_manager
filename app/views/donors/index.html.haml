@@ -5,7 +5,7 @@
   Donors
 
 - content_for :action_items do
-  = link_to 'Add Donor', new_donor_path, :class => 'button'
+  = link_to 'Add Donor', new_donor_path, class: 'button'
 
 %ul.facets
   %li= content_tag(:span, "All (#{Donor.count})")
@@ -17,11 +17,11 @@
       %th Actions
   %tbody
     - @donors.each do |donor|
-      %tr.donor{:class => "donor-#{donor.id}"}
+      %tr.donor{class: "donor-#{donor.id}"}
         %td= donor.name
         %td
           = link_to 'Show', donor
           = link_to 'Edit', edit_donor_path(donor)
-          = link_to 'Delete', donor, :method => :delete, :confirm => 'Are you sure you want to archive this donor?'
+          = link_to 'Delete', donor, method: :delete, confirm: 'Are you sure you want to archive this donor?'
 
 = paginate @donors

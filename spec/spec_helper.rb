@@ -20,7 +20,9 @@ Spork.prefork do
   VCR.config do |c|
     c.cassette_library_dir     = 'spec/cassettes'
     c.stub_with                :webmock
-    c.default_cassette_options = { erb: true } #:record => :new_episodes
+    c.default_cassette_options = { erb: true } 
+    # If you want to allow new VCR tapes to be recorded, add 
+    # :record => :new_episodes to the default options.
 
     c.filter_sensitive_data('<OCLC_WSKEY>') { APP_CONFIG['oclc']['wskey'] }
     c.filter_sensitive_data('<AMAZON_ACCESS_KEY>') { APP_CONFIG['amazon']['access_key'] }
@@ -46,7 +48,7 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
 
-    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, type: :controller
   end
 end
 

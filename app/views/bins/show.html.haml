@@ -5,8 +5,8 @@
   = @bin.name
 
 - content_for :action_items do
-  = link_to 'Edit Bin', edit_bin_path(@bin), :class => 'button'
-  = link_to 'Archive Bin', bin_path(@bin), :method => :delete, :class => 'button'
+  = link_to 'Edit Bin', edit_bin_path(@bin), class: 'button'
+  = link_to 'Archive Bin', bin_path(@bin), method: :delete, class: 'button'
 
 
 .panel.span-17.colborder

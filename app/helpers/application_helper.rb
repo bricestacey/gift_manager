@@ -9,6 +9,9 @@ module ApplicationHelper
 
   # Assumes crumbs is an ordered hash
   def breadcrumbs(crumbs)
-    raw(crumbs.map {|text, path| link_to text, path}.join(content_tag(:span, "/", :class => 'breadcrumb-seperator')) + content_tag(:span, "/", :class => 'breadcrumb-seperator'))
+    crumbs = crumbs.map { |text, path| link_to text, path }
+    crumbs = crumbs.join(content_tag(:span, "/", class: 'breadcrumb-seperator'))
+    crumbs = crumbs + content_tag(:span, "/", class: 'breadcrumb-seperator')
+    crumbs.html_safe
   end
 end
