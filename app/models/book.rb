@@ -8,8 +8,7 @@ class Book < ActiveRecord::Base
   scope :undecided, where(:recommendation => 'undecided')
   scope :keep,      where(:recommendation => 'keep')
   scope :trash,     where(:recommendation => 'trash')
+  scope :sell,      where(:recommendation => 'sell')
 
   scope :today,     where('date(created_at) = ?', Date.today)
-
-  SCOPES = [:undecided, :keep, :trash, :today]
 end

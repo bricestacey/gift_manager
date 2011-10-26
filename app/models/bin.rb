@@ -5,8 +5,6 @@ class Bin < ActiveRecord::Base
   scope :active, where(:active => true)
   scope :inactive, where(:active => false)
 
-  SCOPES = [:active, :inactive]
-
   before_save :ensure_books_decided, unless: :active?
 
   private
