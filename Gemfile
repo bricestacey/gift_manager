@@ -14,6 +14,14 @@ gem 'formtastic'
 
 gem 'pg'
 
+group :development do
+  gem 'guard'
+  gem 'rb-inotify'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-spork'
+end
+
 group :development, :test do
   gem 'rspec-rails'
 end
@@ -25,6 +33,7 @@ group :test do
   gem 'valid_attribute'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'spork', '~> 0.9.0.rc'
 
   gem 'vcr'
   gem 'webmock'
