@@ -8,6 +8,7 @@
   = link_to 'Edit Book', edit_book_path(@book), :class => 'button'
   = link_to 'Keep', recommend_book_path(@book, :book => {:recommendation => 'keep'}), method: :put, class: 'button'
   = link_to 'Trash', recommend_book_path(@book, :book => {:recommendation => 'trash'}), method: :put, class: 'button'
+  = link_to 'Sell', recommend_book_path(@book, :book => {:recommendation => 'sell'}), method: :put, class: 'button'
   = link_to 'Undecided', recommend_book_path(@book, :book => {:recommendation => 'undecided'}), method: :put, class: 'button'
 
 %section.span-17.colborder

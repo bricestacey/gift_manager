@@ -4,7 +4,7 @@ class Books::RecommendationController < ApplicationController
     @book.recommendation = params[:book][:recommendation]
 
     if @book.save
-      flash[:notice] = "The book's recommendation has been updated to: #{params[:book][:recommendation]}."
+      flash[:notice] = "The book's recommendation has been updated to: #{params[:book][:recommendation].capitalize}."
       redirect_to @book
     else
       flash[:error] = "There was a problem updating the book's recommendation."

@@ -14,7 +14,7 @@ describe Book do
       it { should have_valid(:held_remote).when(nil, 'BMU, AAA, CCC') }
       it { should have_valid(:price_amazon).when(nil, '', '$19.00') }
       it { should have_valid(:thumbnail).when(nil, '', 'http://example.com/thumbnail.jpg') }
-      it { should have_valid(:recommendation).when('undecided', 'keep', 'trash', 'sell') }
+      it { should have_valid(:recommendation).when('undecided', 'keep', 'trash', 'sell', 'sell') }
 
       it { should have_valid(:donor).when(Factory.create(:donor)) }
       it { should have_valid(:bin).when(Factory.create(:bin)) }

@@ -64,3 +64,8 @@
     %b Books Trashed
     %br
     = link_to @donor.books.trash.count, books_path(:recommendation => 'trash', :donor => @donor.id)
+
+  %p.books-sell
+    %b Books Sold
+    %br
+    = link_to @donor.books.sell.count, books_path(:recommendation => 'sell', :donor => @donor.id)

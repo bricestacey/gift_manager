@@ -45,3 +45,8 @@
       %b Books Trashed
       %br
       = link_to @bin.books.trash.count, books_path(recommendation: 'trash', bin: @bin.id)
+
+    %p.books-sell
+      %b Books Sold
+      %br
+      = link_to @bin.books.sell.count, books_path(recommendation: 'sell', bin: @bin.id)
