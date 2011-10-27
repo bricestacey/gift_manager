@@ -13,14 +13,10 @@ Spork.prefork do
   require 'valid_attribute'
   require 'vcr'
 
-  # Requires supporting ruby files with custom matchers and macros, etc,
-  # in spec/support/ and its subdirectories.
-  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
   VCR.config do |c|
     c.cassette_library_dir     = 'spec/cassettes'
     c.stub_with                :webmock
-    c.default_cassette_options = { erb: true } 
+    c.default_cassette_options = { erb: true, record: :new_episodes } 
     # If you want to allow new VCR tapes to be recorded, add 
     # :record => :new_episodes to the default options.
 
@@ -28,6 +24,10 @@ Spork.prefork do
     c.filter_sensitive_data('<AMAZON_ACCESS_KEY>') { APP_CONFIG['amazon']['access_key'] }
     c.filter_sensitive_data('<AMAZON_ASSOCIATE_TAG>') { APP_CONFIG['amazon']['associate_tag'] }
   end
+
+  # Requires supporting ruby files with custom matchers and macros, etc,
+  # in spec/support/ and its subdirectories.
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
     config.extend VCR::RSpec::Macros

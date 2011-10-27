@@ -105,7 +105,7 @@ describe BinsController do
         it { assigns(:bin).should be_a(Bin) }
         it { assigns(:bin).should be_persisted }
         it { response.should redirect_to(assigns(:bin)) }
-        it { flash[:notice].should eq('You successfully added a bin.') }
+        it { flash[:success].should eq('You successfully added a bin.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -141,7 +141,7 @@ describe BinsController do
         it { assigns(:bin).should be_a(Bin) }
         it { assigns(:bin).should be_persisted }
         it { response.should redirect_to(assigns(:bin)) }
-        it { flash[:notice].should eq('You successfully updated the bin.') }
+        it { flash[:success].should eq('You successfully updated the bin.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -175,7 +175,7 @@ describe BinsController do
         end
         it { assigns(:bin).should be_a(Bin) }
         it { assigns(:bin).active.should be(false) }
-        it { flash[:notice].should eq('You successfully archived the bin.') }
+        it { flash[:success].should eq('You successfully archived the bin.') }
       end
       context 'when there are undediced books in the bin' do
         before(:each) do

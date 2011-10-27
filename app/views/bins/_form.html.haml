@@ -1,4 +1,10 @@
-= semantic_form_for @bin do |form|
-  = form.input :name, as: 'String'
-  = form.buttons do
-    = form.commit_button label: (@bin.new_record?) ? 'Add Bin' : 'Update Bin'
+= form_for @bin do |form|
+  %fieldset
+    %legend= @bin.name
+    .clearfix
+      = form.label :name
+      .input
+        = form.text_field :name
+
+    .actions
+      = form.submit class: 'btn primary'

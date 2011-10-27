@@ -26,12 +26,9 @@ Feature: Bins
     And   I follow "Bins"
 
   # Index
-  Scenario: The page should have a title, action items, and breadcrumbs.
+  Scenario: The page should have a title, action items.
     Then I should see "Bins" within the title
     And  I should see an "Add Bin" action item
-    And  I should see the following breadcrumbs
-      | text |
-      | Home |
 
   Scenario: The index should have facets to change the faceting
     Then I should see an "Active (3)" facet is selected
@@ -70,10 +67,6 @@ Feature: Bins
     And  I should see the following action items:
       | Edit Bin    |
       | Archive Bin |
-    And  I should see the following breadcrumbs
-      | text |
-      | Home |
-      | Bins |
     And  I should see 2 books were donated
     And  I should see 2 books are undecided
     And  I should see 0 books are keep
@@ -83,32 +76,24 @@ Feature: Bins
   Scenario: Adding a new bin
     When I follow "Add Bin"
     Then I should see "New Bin" within the title
-    And  I should see the following breadcrumbs
-      | text |
-      | Home |
-      | Bins |
 
   Scenario: Adding a new bin
     When I follow "Add Bin"
     And  I fill in "Name" with "Truck #3, top shelf"
-    And  I press "Add Bin"
+    And  I press "Create Bin"
     Then I should see "You successfully added a bin."
     And  I should be on the page for the bin "Truck #3, top shelf"
 
   Scenario: Adding a new bin without a name
     When I follow "Add Bin"
     And  I fill in "Name" with ""
-    And  I press "Add Bin"
-    Then I should see "can't be blank" within "#bin_name_input"
+    And  I press "Create Bin"
+    Then I should see "There was a problem adding the bin."
 
   # Edit
   Scenario: Standard layout for editing a bin
     When I follow "Edit" within the bin "Truck #2, top shelf"
     Then I should see "Edit Bin" within the title
-    And  I should see the following breadcrumbs
-      | text |
-      | Home |
-      | Bins |
 
   Scenario: Editing a bin
     When I follow "Edit" within the bin "Truck #2, top shelf"

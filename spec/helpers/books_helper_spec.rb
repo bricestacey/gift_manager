@@ -7,11 +7,12 @@ describe BooksHelper do
       before(:each) { params[:recommendation] = nil }
 
       it "should not link :all" do
-        link_to_book_facet(:all).should include(content_tag(:span, "All (#{Book.count})"))
+        link_to_book_facet(:all).should include("All (#{Book.count})")
       end
 
       it "should link :trash" do
-        link_to_book_facet(:trash).should include(link_to "Trash (#{Book.trash.count})", books_path(recommendation: :trash))
+        link_to_book_facet(:trash).should include("Trash (#{Book.trash.count})")
+        link_to_book_facet(:trash).should include(books_path(recommendation: :trash))
       end
     end
     
@@ -19,13 +20,16 @@ describe BooksHelper do
       before(:each) { params[:recommendation] = 'keep' }
 
       it "should not link :keep" do
-        link_to_book_facet(:keep).should include(content_tag(:span, "Keep (#{Book.keep.count})"))
+        link_to_book_facet(:keep).should include("Keep (#{Book.keep.count})")
       end
 
       it "should link :all, :trash" do
-        link_to_book_facet(:all).should include(link_to "All (#{Book.count})", books_path)
-        link_to_book_facet(:undecided).should include(link_to "Undecided (#{Book.undecided.count})", books_path(recommendation: :undecided))
-        link_to_book_facet(:trash).should include(link_to "Trash (#{Book.trash.count})", books_path(recommendation: :trash))
+        link_to_book_facet(:all).should include("All (#{Book.count})", books_path)
+        link_to_book_facet(:all).should include(books_path)
+        link_to_book_facet(:undecided).should include("Undecided (#{Book.undecided.count})")
+        link_to_book_facet(:undecided).should include(books_path(recommendation: :undecided))
+        link_to_book_facet(:trash).should include("Trash (#{Book.trash.count})")
+        link_to_book_facet(:trash).should include(books_path(recommendation: :trash))
       end
     end
   end

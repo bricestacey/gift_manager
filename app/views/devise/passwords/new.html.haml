@@ -1,15 +1,13 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path)
-
 - content_for :page_title do
   Forgot your password?
 
-= semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f|
   = devise_error_messages!
 
-  = f.inputs do
-    = f.input :email
-  = f.buttons do
-    = f.commit_button label: 'Send me reset password instructions'
-    = render partial: "devise/shared/links"
-
+  %fieldset
+    .clearfix
+      = f.label :email
+      .input
+        = f.text_field :email
+    .actions
+      = f.submit 'Send me reset password instructions', class: 'btn primary'

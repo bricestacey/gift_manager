@@ -13,9 +13,6 @@ Feature: Donors
   Scenario: The page should have a title
     Then I should see "Donors" within the title
     And  I should see an "Add Donor" action item
-    And  I should see the following breadcrumbs
-      | text |
-      | Home |
 
   Scenario: There should be a list of donors
     Then I should see "Anonymous"
@@ -30,10 +27,6 @@ Feature: Donors
     When I follow "Show" within the donor "Anonymous"
     Then I should see "Anonymous" within the title
     And  I should see an "Edit" action item
-    And  I should see the following breadcrumbs
-      | text   |
-      | Home   |
-      | Donors |
 
   Scenario: Showing a particular donor
     When I follow "Show" within the donor "Anonymous"
@@ -56,10 +49,6 @@ Feature: Donors
   Scenario: Adding a new donor
     When I follow "Add Donor"
     Then I should see "New Donor" within the title
-    And  I should see the following breadcrumbs
-      | text   |
-      | Home   |
-      | Donors |
 
   Scenario: Adding a new donor
     When I follow "Add Donor"
@@ -72,24 +61,19 @@ Feature: Donors
       | City           | Boston                             |
       | State          | MA                                 |
       | Zip Code       | 02125                              |
-    And  I press "Add Donor"
+    And  I press "Create Donor"
     Then I should see "You successfully added a donor"
     And  I should be on the page for the donor "Nathaniel Cranberry"
 
   Scenario: Adding a donor without a name
     When I follow "Add Donor"
-    And  I press "Add Donor"
+    And  I press "Create Donor"
     Then I should see "There was a problem adding the donor."
 
   # Edit
   Scenario: Editing a donor
     When I follow "Edit" within the donor "Anonymous"
     Then I should see "Edit Donor" within the title
-    And  I should see the following breadcrumbs
-      | text         |
-      | Home         |
-      | Donors       |
-      | Anonymous    |
 
   Scenario: Editing a donor
     When I follow "Edit" within the donor "Anonymous"

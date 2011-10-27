@@ -18,9 +18,6 @@ Feature: Users
   Scenario: The page should have the proper standard layout
     Then I should see "Users" within the title
     Then I should see an "Add User" action item
-    Then I should see the following breadcrumbs
-      | text |
-      | Home |
 
   # Index
   Scenario: There should be a list of users
@@ -45,26 +42,18 @@ Feature: Users
     And  I should see the following action items:
       | Edit User   |
       | Delete User |
-    And  I should see the following breadcrumbs
-      | text  |
-      | Home  |
-      | Users |
 
   # New
   Scenario: Adding a new user
     When I follow "Add User"
     Then I should see "New User" within the title
-    Then I should see the following breadcrumbs
-      | text  |
-      | Home  |
-      | Users |
 
   Scenario: Adding a user
     When I follow "Add User"
     And  I fill in "Email" with "student@example.com"
     And  I fill in "Password" with "secret"
     And  I fill in "Password confirmation" with "secret"
-    And  I press "Add User"
+    And  I press "Create User"
     Then I should see "You successfully added a user."
     And  I should be on the page for the user "student@example.com"
 

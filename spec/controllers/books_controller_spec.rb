@@ -118,7 +118,7 @@ describe BooksController do
         it { assigns(:book).should be_a(Book) }
         it { assigns(:book).should be_persisted }
         it { response.should redirect_to(assigns(:book)) }
-        it { flash[:notice].should eq('You successfully added a book.') }
+        it { flash[:success].should eq('You successfully added a book.') }
       end
 
       context 'when given invalid attributes' do
@@ -154,7 +154,7 @@ describe BooksController do
         it { assigns(:book).should be_a(Book) }
         it { assigns(:book).should be_persisted }
         it { response.should redirect_to(assigns(:book)) }
-        it { flash[:notice].should eq('You successfully updated the book.') }
+        it { flash[:success].should eq('You successfully updated the book.') }
       end
 
       context 'when given invalid attributes' do
@@ -188,7 +188,7 @@ describe BooksController do
 
         it { assigns(:book).should be_a(Book) }
         it { assigns(:book).should_not be_persisted }
-        it { flash[:notice].should eq('You successfully deleted the book.') }
+        it { flash[:success].should eq('You successfully deleted the book.') }
       end
 
       context 'when unsuccessful' do

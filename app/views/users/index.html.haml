@@ -1,11 +1,8 @@
 - content_for :page_title do
   Users
 
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path)
-
 - content_for :action_items do
-  = link_to 'Add User', new_user_path, class: 'button'
+  = link_to 'Add User', new_user_path, class: 'btn'
 
 %table
   %thead

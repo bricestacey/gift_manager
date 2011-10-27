@@ -1,75 +1,59 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path, 'Books' => books_path)
-
 - content_for :page_title do
   = @book.title
 
 - content_for :action_items do
-  = link_to 'Edit Book', edit_book_path(@book), class: 'button'
-  = link_to 'Keep', recommend_book_path(@book, book: {recommendation: 'keep'}), method: :put, class: 'button'
-  = link_to 'Trash', recommend_book_path(@book, book: {recommendation: 'trash'}), method: :put, class: 'button'
-  = link_to 'Sell', recommend_book_path(@book, book: {recommendation: 'sell'}), method: :put, class: 'button'
-  = link_to 'Undecided', recommend_book_path(@book, book: {recommendation: 'undecided'}), method: :put, class: 'button'
+  = link_to 'Edit Book', edit_book_path(@book), class: 'btn'
+  = link_to 'Keep', recommend_book_path(@book, book: {recommendation: 'keep'}), method: :put, class: 'btn'
+  = link_to 'Trash', recommend_book_path(@book, book: {recommendation: 'trash'}), method: :put, class: 'btn'
+  = link_to 'Sell', recommend_book_path(@book, book: {recommendation: 'sell'}), method: :put, class: 'btn'
+  = link_to 'Undecided', recommend_book_path(@book, book: {recommendation: 'undecided'}), method: :put, class: 'btn'
 
-%section.span-17.colborder
-  .panel.span-17
-    .panel-title Bibliographic Information
-    .panel-contents
-      .title.field.span-17
-        .span-4 Title:
-        .span-13.last= @book.title
+.row
+  .span12
+    %h3 Bibliographic Information
+    .row.title
+      .span2 Title:
+      .span10= @book.title
+    .row.author
+      .span2 Author:
+      .span10= @book.author
+    .row.publisher
+      .span2 Publisher:
+      .span10= @book.publisher
+    .row.published
+      .span2 Published:
+      .span10= @book.published
+    .row.series
+      .span2 Series:
+      .span10= @book.series
+    .row.call_number
+      .span2 Call Number:
+      .span10= @book.call_number
+    .row.isbn
+      .span2 ISBN:
+      .span10= @book.isbn
 
-      .author.field.span-17
-        .span-4 Author:
-        .span-13.last= @book.author
+    %h3 Holdings Information
+    .row
+      .span2 Held Local
+      .span10= (@book.held_local) ? 'Yes' : 'No'
+    .row
+      .span2 Held at BLC
+      .span10= @book.held_remote
 
-      .publisher.field.span-17
-        .span-4 Publisher
-        .span-13.last= @book.publisher
+    %h3 Other Information
+    =link_to 'Lookup item in WorldCat', "http://worldcat.org/isbn/#{@book.isbn}"
+    %br
+    =link_to 'Lookup item at Amazon', "http://amazon.com/gp/product/#{@book.isbn}"
 
-      .published.field.span-17
-        .span-4 Published
-        .span-13.last= @book.published
-
-      .field.span-17
-        .span-4 Series
-        .span-13.last= @book.series
-
-      .field.span-17
-        .span-4 Call Number
-        .span-13.last= @book.call_number
-
-      .field.span-17
-        .span-4 ISBN
-        .span-13.last= @book.isbn
-
-  .panel.span-17
-    .panel-title Holdings Information
-    .panel-contents
-      .field.span-17
-        .span-4 Held Local
-        .span-13.last= (@book.held_local) ? 'Yes' : 'No'
-
-      .field.span-17
-        .span-4 Boston Library Consortium
-        .span-13.last= @book.held_remote
-
-  .panel.span-17
-    .panel-title Other Information
-    .panel-contents
-      =link_to 'Lookup item in WorldCat', "http://worldcat.org/isbn/#{@book.isbn}"
+  .span4
+    %h3 
+    %p.recommendation
+      %b Recommendation:
       %br
-      =link_to 'Lookup item at Amazon', "http://amazon.com/gp/product/#{@book.isbn}"
+      = @book.recommendation.capitalize
 
-.sidebar.span-4.last
-  %p.recommendation
-    %b Recommendation:
-    %br
-    = @book.recommendation.capitalize
-
-  %p.thumbnail
-    %b Thumbnail:
-    %br
-    = book_thumbnail(@book)
-
-
+    %p.thumbnail
+      %b Thumbnail:
+      %br
+      = book_thumbnail(@book)

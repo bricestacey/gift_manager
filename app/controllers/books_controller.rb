@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_filter :find_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.page params[:page]
+    @books = Book.order(:created_at).page params[:page]
 
     # Allow filtering by donor, bin, or recommendation
     @books = @books.where(donor_id: params[:donor]) if params[:donor]
@@ -33,7 +33,7 @@ class BooksController < ApplicationController
     end
 
     if @book.save
-      flash[:notice] = 'You successfully added a book.'
+      flash[:success] = 'You successfully added a book.'
       redirect_to action: 'show', id: @book.id
     else
       flash.now[:error] = 'There was a problem adding the book.'
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     @book.attributes = params[:book]
 
     if @book.save
-      flash[:notice] = "You successfully updated the book."
+      flash[:success] = "You successfully updated the book."
       redirect_to action: 'show', id: @book.id
     else
       flash.now[:error] = 'There was a problem updating the book.'
@@ -55,7 +55,7 @@ class BooksController < ApplicationController
 
   def destroy
     if @book.destroy
-      flash[:notice] = 'You successfully deleted the book.'
+      flash[:success] = 'You successfully deleted the book.'
       redirect_to action: 'index'
     else
       flash[:error] = 'There was a problem deleting the book.'

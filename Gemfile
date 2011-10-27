@@ -13,10 +13,13 @@ gem 'kaminari'
 gem 'formtastic'
 
 gem 'pg'
+gem 'passenger'
 
 group :development do
   gem 'guard'
-  gem 'rb-inotify'
+  gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
+  gem 'rb-fsevent' if RUBY_PLATFORM.downcase.include?("darwin")
+  gem 'guard-passenger'
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-spork'
@@ -32,7 +35,9 @@ group :test do
   gem 'cucumber-rails'
   gem 'valid_attribute'
   gem 'factory_girl_rails'
+  gem 'headless'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'spork', '~> 0.9.0.rc'
 
   gem 'vcr'
@@ -47,7 +52,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'bourbon'
+gem 'less-rails-bootstrap'
 
 gem 'thor'
 

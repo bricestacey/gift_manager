@@ -21,7 +21,7 @@ describe Books::RecommendationController do
           assigns(:book).recommendation.should eq(@recommendation)
         end
         it "sets the flash" do
-          flash[:notice].should eq("The book's recommendation has been updated to: #{@recommendation.capitalize}.")
+          flash[:success].should eq("The book's recommendation has been updated to: #{@recommendation.capitalize}.")
         end
         it "redirects to the book" do
           response.should redirect_to(@book)
