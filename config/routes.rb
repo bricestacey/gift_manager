@@ -3,6 +3,7 @@ GiftManager::Application.routes.draw do
 
   resources :users
   resources :books do
+    put "batch", on: :collection, controller: "books/batch", action: :update, as: 'batch'
     put "recommend", on: :member, controller: "books/recommendation", action: :update, as: 'recommend'
   end
   resources :bins

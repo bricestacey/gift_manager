@@ -40,6 +40,16 @@ Feature: Books
     When  I follow "Books"
     Then  I should see pagination
 
+  @javascript
+  Scenario: Can select multiple books and change their recommendation
+    When I select the book "Walden"
+    And  I select the book "AWOCAMR"
+    And  I select "Trash" from "book[recommendation]"
+    Then I should be on the books page
+    And  I should see "You have successfully changed the recommendations."
+    And  I should see the book "Walden" has the "trash" recommendation
+    And  I should see the book "AWOCAMR" has the "trash" recommendation
+
   # Show
   Scenario: Showing a particular book
     When I show the book "Walden"

@@ -39,3 +39,14 @@ When /^I show the book "([^"]*)"$/ do |title|
   @book = Book.find_by_title(title)
   When %{I follow "Show" within "table tbody tr.book-#{@book.id}"}
 end
+
+When /^I select the book "([^"]*)"$/ do |title|
+  book = Book.find_by_title(title)
+  When %{I check "book-#{book.id}"}
+end
+
+Then /^I should see the book "([^"]*)" has the "([^"]*)" recommendation$/ do |title, recommendation|
+  book = Book.find_by_title(title)
+  book.recommendation.should eq(recommendation)
+end
+

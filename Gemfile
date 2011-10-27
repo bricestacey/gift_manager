@@ -32,7 +32,9 @@ group :test do
   gem 'cucumber-rails'
   gem 'valid_attribute'
   gem 'factory_girl_rails'
+  gem 'headless'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'spork', '~> 0.9.0.rc'
 
   gem 'vcr'
