@@ -36,7 +36,7 @@
     .clearfix
       = f.label :held_local
       .input
-        = f.select :held_local, [['Yes', 'true'], ['No', 'false']]
+        = f.select :held_local, [['Yes', 'true'], ['No', 'false']], include_blank: true
     .clearfix
       = f.label :held_remote, 'BLC Libraries'
       .input
