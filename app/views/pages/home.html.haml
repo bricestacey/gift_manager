@@ -4,9 +4,9 @@
 - content_for :action_items do
   /
 
-.panel.span-17.colborder
-  %h3.panel-title Today's Stats
-  .panel-contents
+.row
+  .span12
+    %h3 Today's Stats
     %table
       %thead
         %tr
@@ -21,29 +21,25 @@
           %th= @counts[:today_keep]
           %th= @counts[:today_trash]
 
-  %h3.panel-title All Time Stats
-  .panel-contents
-    %table
-      %thead
-        %tr
-          %th Books Donated
-          %th Undecided Books
-          %th Kept Books
-          %th Trashed Books
-      %tbody
-        %tr
-          %th= @counts[:total]
-          %th= @counts[:total_undecided]
-          %th= @counts[:total_keep]
-          %th= @counts[:total_trash]
-
-.panel.span-6.last
-  .panel
-    .panel-title Some Info Here
+    %h3 All Time Stats
     .panel-contents
-      Fun!
+      %table
+        %thead
+          %tr
+            %th Books Donated
+            %th Undecided Books
+            %th Kept Books
+            %th Trashed Books
+        %tbody
+          %tr
+            %th= @counts[:total]
+            %th= @counts[:total_undecided]
+            %th= @counts[:total_keep]
+            %th= @counts[:total_trash]
 
-  .panel
-    .panel-title Help
-    .panel-contents
-      Need help? Ask your supervisor!
+  .span4
+    %h3 Some Info Here
+    Fun!
+
+    %h3 Help
+    Need help? Ask your supervisor!

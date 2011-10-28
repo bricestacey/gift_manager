@@ -1,12 +1,24 @@
 - content_for :page_title do
   Sign In
 
-= semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.inputs do
-    = f.input :email
-    = f.input :password
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  = f.buttons do
-    = f.commit_button label: 'Sign in'
-    = render partial: "devise/shared/links"
+= form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+  %fieldset
+    .clearfix
+      = f.label :email
+      .input
+        = f.text_field :email
+    .clearfix
+      = f.label :password
+      .input
+        = f.password_field :password
 
+    - if devise_mapping.rememberable?
+      .clearfix
+        = f.label :remember_me
+        .input
+          = f.check_box :remember_me
+
+  .actions
+    = f.submit 'Sign in'
+
+  = render partial: "devise/shared/links"
