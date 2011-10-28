@@ -17,9 +17,6 @@ Feature: Books
   Scenario: The page should have the proper standard layout
     Then I should see "Books" within the title
     Then I should see an "Add Book" action item
-    Then I should see the following breadcrumbs
-      | text |
-      | Home |
 
   # Index
   Scenario: There should be a list of books
@@ -61,10 +58,6 @@ Feature: Books
       | Keep      |
       | Trash     |
       | Sell      |
-    And  I should see the following breadcrumbs
-      | text  |
-      | Home  |
-      | Books |
     And  I should see the following book details:
       | title       | author  | published | publisher |
       | Walden      | Thoreau | 1854      | foo       |
@@ -86,32 +79,29 @@ Feature: Books
   Scenario: Adding a new book
     When I follow "Add Book"
     Then I should see "New Book" within the title
-    Then I should see the following breadcrumbs
-      | text  |
-      | Home  |
-      | Books |
 
   Scenario: Adding a book
     When I follow "Add Book"
     And  I fill in "ISBN" with "1557094179"
     And  I select "Anonymous" from "Donor"
     And  I select "Top Shelf" from "Bin"
-    And  I press "Add Book"
+    And  I press "Create Book"
     Then I should see "You successfully added a book"
     And  I should be on the page for the book with isbn "1557094179"
 
   Scenario: Adding a book without a donor
     When I follow "Add Book"
     And  I fill in "ISBN" with "1557094179"
-    And  I press "Add Book"
-    Then I should see "can't be blank"
+    And  I press "Create Book"
+    Then I should see "There was a problem adding the book."
+
 
   Scenario: Adding a book that has no thumbnail in Amazon
     When I follow "Add Book"
     And  I fill in "ISBN" with "047210330x"
     And  I select "Anonymous" from "Donor"
     And  I select "Top Shelf" from "Bin"
-    And  I press "Add Book"
+    And  I press "Create Book"
     Then I should be on the page for the book with isbn "047210330x"
     And  I should see "No thumbnail"
 
@@ -125,7 +115,7 @@ Feature: Books
       | Author | Franklin, Tom                 |
     And  I select "Anonymous" from "Donor"
     And  I select "Top Shelf" from "Bin"
-    And  I press "Add Book"
+    And  I press "Create Book"
     Then I should be on the latest book's details
     And  I should see "Crooked Letter Crooked Letter"
     And  I should see "Franklin, Tom"

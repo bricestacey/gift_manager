@@ -7,30 +7,29 @@
     = csrf_meta_tag
 
   %body
-    #menu
-      .container
-        %h1= link_to 'Gift Manager', root_path
-        %ul.tabs
-          %li{class: (request.path =~ /^\/bins/) ? 'active' : ''}= link_to 'Bins', bins_path
-          %li{class: (request.path =~ /^\/donors/) ? 'active' : ''}=link_to 'Donors', donors_path
-          %li{class: (request.path =~ /^\/books/) ? 'active' : ''}=link_to 'Books', books_path
-          %li{class: (request.path =~ /^\/users/) ? 'active' : ''}=link_to 'Users', users_path
-        - if user_signed_in?
-          .right
-            = link_to 'Sign out', destroy_user_session_path
+    .topbar
+      .topbar-inner
+        .container
+          = link_to 'Gift Manager', root_path, class: 'brand'
+          %ul.nav
+            %li{class: (request.path =~ /^\/bins/) ? 'active' : ''}= link_to 'Bins', bins_path
+            %li{class: (request.path =~ /^\/donors/) ? 'active' : ''}=link_to 'Donors', donors_path
+            %li{class: (request.path =~ /^\/books/) ? 'active' : ''}=link_to 'Books', books_path
+            %li{class: (request.path =~ /^\/users/) ? 'active' : ''}=link_to 'Users', users_path
+          - if user_signed_in?
+            %ul.nav.right
+              = link_to 'Sign out', destroy_user_session_path
 
     #header
       .container 
-        .breadcrumb
-          = yield :breadcrumb
         .action_items.right
           = yield :action_items
-        %h2.page_title
-          = yield :page_title
+        .page-header
+          %h2= yield :page_title
 
     .container
       #flash
         -flash.each do |key, value|
-          .flash{class: key}= value
+          .alert-message{class: key}= value
 
       = yield

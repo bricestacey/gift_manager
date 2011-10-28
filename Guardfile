@@ -7,6 +7,11 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
+guard 'passenger' do
+  watch(/^lib\/.*\.rb$/)
+  watch(/^config\/.*\.rb$/)
+end
+
 guard 'spork', rspec_env: { 'RAILS_ENV' => 'test' }, cucumber_env: { 'RAILS_ENV' => 'test'} do
   watch('config/application.rb')
   watch('config/environment.rb')
@@ -34,4 +39,3 @@ guard 'rspec', cli: '--colour --format documentation --drb', version: 2, all_on_
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
-

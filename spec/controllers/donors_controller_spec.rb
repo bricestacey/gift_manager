@@ -105,7 +105,7 @@ describe DonorsController do
         it { assigns(:donor).should be_a(Donor) }
         it { assigns(:donor).should be_persisted }
         it { response.should redirect_to(assigns(:donor)) }
-        it { flash[:notice].should eq('You successfully added a donor.') }
+        it { flash[:success].should eq('You successfully added a donor.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -141,7 +141,7 @@ describe DonorsController do
         it { assigns(:donor).should be_a(Donor) }
         it { assigns(:donor).should be_persisted }
         it { response.should redirect_to(assigns(:donor)) }
-        it { flash[:notice].should eq('You successfully updated the donor.') }
+        it { flash[:success].should eq('You successfully updated the donor.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -177,7 +177,7 @@ describe DonorsController do
         it { assigns(:donor).should be_a(Donor) }
         it { assigns(:donor).should_not be_persisted }
         it { response.should redirect_to(donors_path) }
-        it { flash[:notice].should eq('You successfully deleted the donor.') }
+        it { flash[:success].should eq('You successfully deleted the donor.') }
       end
       context 'when the donor has books' do
         before(:each) do

@@ -1,88 +1,11 @@
-#menu {
-  background-color: #6A7176;
-  padding: 9px 30px;
-}
-
-#menu h1 { 
-  display: inline; 
-  margin: 0;
-  padding: 0 10px 0 0;
-  font-size: 1.5em;
-}
-
-#menu ul.tabs {
-  margin: 0;
-  padding: 0;
-  display: inline;
-  height: 100%;
-}
-
-#menu ul.tabs li {
-  display: inline;
-  margin-right: 4px;
-  padding: 9px 0;
-  font-size: 1.0em;
-  position: relative;
-}
-
-#menu ul.tabs li a {
-  text-decoration: none;
-  padding: 6px 10px 4px 10px;
-  position: relative;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  color: #CDCDCD
-}
-
-#menu ul.tabs li.active > a {
-  background-color: #7BB389;
-  color: #fff;
-}
-
-/* SIGN OUT */
-#menu .right a {
-  text-decoration: none;
-  color: #cdcdcd;
-}
-#menu .right a:hover {
-  text-decoration: underline;
+.right {
+  float: right;
 }
 
 #header {
-  background-color: #EFEFEF;
-  padding-top: 0.25em;
+  padding-top: 44px;
 }
 
-.breadcrumb a,
-.breadcrumb a:link {
-  color: #8A949E;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-.breadcrumb-seperator {
-  color: #AAb2BA;
-  display: inline;
-  padding: .25em;
-}
-
-
-.panel {
-  margin-bottom: 1.5em;
-}
-.panel .panel-title {
-  font-weight: bold;
-}
-
-table thead tr th {
-  background-color: #EFEFEF;
-}
-
-tbody tr:nth-child(even) td, tbody tr.even td {background:none;}
-table tbody tr.book-recommendation-undecided td {
-}
 table tbody tr.book-recommendation-keep td {
   background-color: #e6efc2;
 }
@@ -90,7 +13,19 @@ table tbody tr.book-recommendation-trash td {
   background-color: #fbe3e4;;
 }
 
-h1 a {
-  color: #000;
-  text-decoration: none;
+ul.facets {
+  margin: 0 0 1em 0;
+  padding: 0;
+  display: inline;
+  height: 100%;
+
+  li {
+    display: inline;
+    margin-right: 4px;
+    padding: 9px 0;
+    font-size: 1.0em;
+    position: relative;
+  }
+
+  @include clearfix;
 }

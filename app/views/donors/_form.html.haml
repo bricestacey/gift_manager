@@ -1,12 +1,38 @@
-= semantic_form_for @donor do |form|
-  = form.inputs do
-    = form.input :name, as: 'string'
-    = form.input :phone, as: 'string'
-    = form.input :email, as: 'string'
-    = form.input :line1, label: 'Address Line 1', as: 'string'
-    = form.input :line2, label: 'Address Line 2', as: 'string'
-    = form.input :city, as: 'string'
-    = form.input :state, as: 'string'
-    = form.input :zip, label: 'Zip Code', as: 'string'
-  = form.buttons do
-    = form.commit_button label: (@donor.new_record?) ? 'Add Donor' : 'Update Donor'
+= form_for @donor do |f|
+  %fieldset
+    %legend= @donor.name
+    .clearfix
+      = f.label :name
+      .input
+        = f.text_field :name
+    .clearfix
+      = f.label :phone
+      .input
+        = f.text_field :phone
+    .clearfix
+      = f.label :email
+      .input
+        = f.text_field :email
+    .clearfix
+      = f.label :line1, 'Address Line 1'
+      .input
+        = f.text_field :line1
+    .clearfix
+      = f.label :line2, 'Address Line 2'
+      .input
+        = f.text_field :line2
+    .clearfix
+      = f.label :city
+      .input
+        = f.text_field :city
+    .clearfix
+      = f.label :state
+      .input
+        = f.text_field :state
+    .clearfix
+      = f.label :zip, 'Zip Code'
+      .input
+        = f.text_field :zip
+
+    .actions
+      = f.submit class: 'btn primary'

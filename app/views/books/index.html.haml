@@ -1,11 +1,8 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path)
-
 - content_for :page_title do
   = 'Books'
 
 - content_for :action_items do
-  = link_to 'Add Book', new_book_path, class: 'button'
+  = link_to 'Add Book', new_book_path, class: 'btn'
 
 %ul.facets
   %li= link_to_book_facet(:all)
@@ -19,15 +16,23 @@
     $('#book_recommendation').change(function() {
       $('form').submit();
     });
+
+    $('#book-all').click(function() {
+      if ($(this).is(":checked")) {
+        $(":checkbox").attr("checked", true);
+      } else {
+        $(":checkbox").attr("checked", false);
+      }
+    });
   });
 
 
 = form_tag(batch_books_path, :method => 'put') do
-  = select_tag('book[recommendation]', options_for_select([['Undecided', 'undecided'], ['Keep', 'keep'], ['Sell', 'sell'], ['Trash', 'trash']]))
+  = select_tag('book[recommendation]', options_for_select([['Recommendation', ''], ['Undecided', 'undecided'], ['Keep', 'keep'], ['Sell', 'sell'], ['Trash', 'trash']]))
   %table
     %thead
       %tr
-        %th Check
+        %th= check_box_tag "book-all"
         %th Title
         %th Author
         %th Published

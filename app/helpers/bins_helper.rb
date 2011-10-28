@@ -5,16 +5,16 @@ module BinsHelper
     when :active
       text = "Active (#{Bin.active.count})"
       if params[:active].nil? || params[:active] == 'true'
-        content_tag(:span, text)
+        link_to text, bins_path(active: true), class: 'btn primary'
       else
-        link_to text, bins_path(active: true)
+        link_to text, bins_path(active: true), class: 'btn'
       end
     when :inactive
       text = "Inactive (#{Bin.inactive.count})"
       if params[:active] == 'false'
-        content_tag(:span, text)
+        link_to text, bins_path(active:false), class: 'btn primary'
       else
-        link_to(text, bins_path(active: false))
+        link_to text, bins_path(active: false), class: 'btn'
       end
     end
   end

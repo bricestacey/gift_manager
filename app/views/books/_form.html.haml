@@ -1,23 +1,65 @@
-= semantic_form_for @book do |form|
-  = form.inputs 'Bibliographic Information' do
-    = form.input :isbn, label: 'ISBN', as: 'string'
-    = form.input :title, as: 'string'
-    = form.input :author, as: 'string'
-    = form.input :published, as: 'string'
-    = form.input :publisher, as: 'string'
-    = form.input :series, as: 'string'
-    = form.input :call_number, label: 'Call Number', as: 'string'
+= form_for @book do |f|
+  %fieldset
+    %legend Bibliographic Information
 
-  = form.inputs 'Holdings Information' do
-    = form.input :held_local, as: :select
-    = form.input :held_remote, label: 'BLC Libraries', as: 'string'
+    .clearfix
+      = f.label :isbn, 'ISBN'
+      .input
+        = f.text_field :isbn
+    .clearfix
+      = f.label :title
+      .input
+        = f.text_field :title
+    .clearfix
+      = f.label :author
+      .input
+        = f.text_field :author
+    .clearfix
+      = f.label :published
+      .input
+        = f.text_field :published
+    .clearfix
+      = f.label :publisher
+      .input
+        = f.text_field :publisher
+    .clearfix
+      = f.label :series
+      .input
+        = f.text_field :series
+    .clearfix
+      = f.label :call_number, 'Call Number'
+      .input
+        = f.text_field :call_number
 
-  = form.inputs 'Pricing Information' do
-    = form.input :price_amazon, as: 'string'
+  %fieldset
+    %legend Holdings Information
+    .clearfix
+      = f.label :held_local
+      .input
+        = f.select :held_local, [['Yes', 'true'], ['No', 'false']]
+    .clearfix
+      = f.label :held_remote, 'BLC Libraries'
+      .input
+        = f.text_field :held_remote
 
-  = form.inputs 'Miscellaneous' do 
-    = form.input :donor
-    = form.input :bin
+  %fieldset
+    %legend Price Information
+    .clearfix
+      = f.label :price_amazon
+      .input
+        = f.text_field :price_amazon
 
-  = form.buttons do
-    = form.commit_button label: (@book.new_record?) ? 'Add Book' : 'Update Book'
+  %fieldset
+    %legend Miscellaneous
+    .clearfix
+      = f.label :donor_id
+      .input
+        = f.select :donor_id, Donor.all.map {|d| [d.name, d.id]}, include_blank: true
+
+    .clearfix
+      = f.label :bin_id
+      .input
+        = f.select :bin_id, Bin.all.map {|b| [b.name, b.id] }, include_blank: true
+    
+  .actions
+    = f.submit class: 'btn primary'

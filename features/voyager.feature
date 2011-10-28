@@ -15,7 +15,7 @@ Feature: Pull book info from local ILS (Voyager)
     When I fill in "ISBN" with the ISBN of a book with at least one circulation
     And  I select "Anonymous" from "Donor"
     And  I select "Top Shelf" from "Bin"
-    And  I press "Add Book"
+    And  I press "Create Book"
     Then I should see that there is at least one copy
     And  I should see that there is at least one circulation
 
@@ -23,6 +23,6 @@ Feature: Pull book info from local ILS (Voyager)
     When I fill in "ISBN" with the ISBN of a book without a circulation
     And  I select "Anonymous" from "Donor"
     And  I select "Top Shelf" from "Bin"
-    And  I press "Add Book"
+    And  I press "Create Book"
     Then I should see that there is at least one copy
     And  I should see that it has not circulated

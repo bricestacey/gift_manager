@@ -102,7 +102,7 @@ describe UsersController do
         it { assigns(:user).should be_a(User) }
         it { assigns(:user).should be_persisted }
         it { response.should redirect_to(assigns(:user)) }
-        it { flash[:notice].should eq('You successfully added a user.') }
+        it { flash[:success].should eq('You successfully added a user.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -138,7 +138,7 @@ describe UsersController do
         it { assigns(:user).should be_a(User) }
         it { assigns(:user).should be_persisted }
         it { response.should redirect_to(assigns(:user)) }
-        it { flash[:notice].should eq('You successfully updated the user.') }
+        it { flash[:success].should eq('You successfully updated the user.') }
       end
       context 'when given invalid attributes' do
         before(:each) do
@@ -173,7 +173,7 @@ describe UsersController do
         it { assigns(:user).should be_a(User) }
         it { assigns(:user).should_not be_persisted }
         it { response.should redirect_to(users_path) }
-        it { flash[:notice].should eq('You successfully deleted the user.') }
+        it { flash[:success].should eq('You successfully deleted the user.') }
       end
       context 'when unsuccessful' do
         before(:each) do

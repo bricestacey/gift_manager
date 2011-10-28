@@ -2,15 +2,8 @@ Then /^I should see an? "([^"]*)" action item$/ do |text|
   Then %{I should see "#{text}" within the action items}
 end
 
-Then /^I should see the following breadcrumbs$/ do |crumbs|
-  crumbs.hashes.each do |crumb|
-    Then %{I should see "#{crumb[:text]}" within ".breadcrumb"}
-  end
-end
-
 Then /^I should see an? "([^"]*)" facet is selected$/ do |facet|
-  Then %{I should see "#{facet}" within "span" within ".facets"}
-  And  %{I should not see "#{facet}" within "a" within ".facets"}
+  Then %{I should see "#{facet}" within ".btn.primary" within ".facets"}
 end
 
 Then /^I should see an? "([^"]*)" facet$/ do |facet|

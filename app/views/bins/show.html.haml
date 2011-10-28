@@ -1,18 +1,14 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path, 'Bins' => bins_path)
-
 - content_for :page_title do
   = @bin.name
 
 - content_for :action_items do
-  = link_to 'Edit Bin', edit_bin_path(@bin), class: 'button'
-  = link_to 'Archive Bin', bin_path(@bin), method: :delete, class: 'button'
+  = link_to 'Edit Bin', edit_bin_path(@bin), class: 'btn'
+  = link_to 'Archive Bin', bin_path(@bin), method: :delete, class: 'btn'
 
 
-.panel.span-17.colborder
-  .panel-title
-    %b Bin Details
-  .panel-contents
+.row
+  .span12
+    %h3 Bin Details
     %table
       %tr
         %th Name
@@ -24,8 +20,8 @@
         %th Updated At
         %td= @bin.updated_at.to_formatted_s(:long)
 
-.sidebar.span-6.last
-  .sidebar-contents
+  .span4
+    %h3 Counts
     %p.books-donated
       %b Books Donated
       %br

@@ -1,11 +1,8 @@
-- content_for :breadcrumb do
-  = breadcrumbs('Home' => root_path)
-
 - content_for :page_title do
   Bins
 
 - content_for :action_items do
-  = link_to 'Add Bin', new_bin_path, class: 'button'
+  = link_to 'Add Bin', new_bin_path, class: 'btn'
 
 %ul.facets
   %li= link_to_bin_facet(:all)

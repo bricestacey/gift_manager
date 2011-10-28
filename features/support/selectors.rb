@@ -12,7 +12,7 @@ module HtmlSelectorsHelpers
       "html > body"
 
     when "the title"
-      ".page_title"
+      ".page-header"
 
     when "the action items"
       ".action_items"
