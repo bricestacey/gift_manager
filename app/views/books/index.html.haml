@@ -41,7 +41,7 @@
     %tbody
       - @books.each do |book|
         %tr{class: "book book-#{book.id} book-recommendation-#{book.recommendation}"}
-          %td= check_box_tag "book-#{book.id}"
+          %td= check_box_tag "ids[]", book.id
           %td= book.title
           %td= book.author
           %td= book.published

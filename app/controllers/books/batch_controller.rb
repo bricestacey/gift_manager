@@ -1,15 +1,20 @@
 module Books
   class BatchController < ApplicationController
     def update
-      params.keys.each do |k|
-        next unless k =~ /^book-(\d+)$/
-        book = Book.find($1)
-        book.attributes = params[:book]
-
-        book.save
+      @books = Book.find params[:ids]
+      begin
+        Book.transaction do
+          @books.each do |book|
+            book.attributes = params[:book]
+            book.save!
+          end
+        end
+      rescue
+        flash[:error] = 'There was a problem changing the book recommendations.'
+        redirect_to books_path and return
       end
 
-      flash[:success] = 'You have successfully changed the recommendations.'
+      flash[:success] = 'You have successfully updated the books.'
       redirect_to books_path
     end
   end
