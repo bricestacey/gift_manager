@@ -4,16 +4,9 @@
 - content_for :action_items do
   = link_to 'Add Book', new_book_path, class: 'btn'
 
-%ul.facets
-  %li= link_to_book_facet(:all)
-  %li= link_to_book_facet(:undecided)
-  %li= link_to_book_facet(:keep)
-  %li= link_to_book_facet(:sell)
-  %li= link_to_book_facet(:trash)
-
 :javascript
   $(document).ready(function() {
-    $('#book_recommendation').change(function() {
+    $('#book_recommendation, #book_bin_id, #book_donor_id').change(function() {
       $('form').submit();
     });
 
@@ -28,7 +21,18 @@
 
 
 = form_tag(batch_books_path, :method => 'put') do
-  = select_tag('book[recommendation]', options_for_select([['Recommendation', ''], ['Undecided', 'undecided'], ['Keep', 'keep'], ['Sell', 'sell'], ['Trash', 'trash']]))
+  %ul.facets
+    %li= link_to_book_facet(:all)
+    %li= link_to_book_facet(:undecided)
+    %li= link_to_book_facet(:keep)
+    %li= link_to_book_facet(:sell)
+    %li= link_to_book_facet(:trash)
+
+  %ul.facets
+    %li= select_tag('book[recommendation]', options_for_select([['Undecided', 'undecided'], ['Keep', 'keep'], ['Sell', 'sell'], ['Trash', 'trash']]), prompt: 'Change Recommendation')
+    %li= select_tag('book[bin_id]', options_from_collection_for_select(Bin.all, :id, :name), prompt: 'Move Bin')
+    %li= select_tag('book[donor_id]', options_from_collection_for_select(Donor.all, :id, :name), prompt: 'Change Donor')
+
   %table
     %thead
       %tr

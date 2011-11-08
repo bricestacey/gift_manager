@@ -35,7 +35,7 @@ describe Books::BatchController do
         end
 
         it "sets the flash" do
-          flash[:error].should eq("There was a problem changing the book recommendations.")
+          flash[:error].should eq("There was a problem changing the books.")
         end
         it "redirects to the book list" do
           response.should redirect_to books_path
