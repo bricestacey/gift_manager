@@ -10,20 +10,9 @@ gem 'amazon-ecs'
 
 gem 'haml'
 gem 'kaminari'
-gem 'formtastic'
 
 gem 'pg'
 gem 'passenger'
-
-group :development do
-  gem 'guard'
-  gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
-  gem 'rb-fsevent' if RUBY_PLATFORM.downcase.include?("darwin")
-  gem 'guard-passenger'
-  gem 'guard-rspec'
-  gem 'guard-bundler'
-  gem 'guard-spork'
-end
 
 group :development, :test do
   gem 'rspec-rails'
@@ -38,7 +27,6 @@ group :test do
   gem 'headless'
   gem 'capybara'
   gem 'capybara-webkit'
-  gem 'spork', '~> 0.9.0.rc'
 
   gem 'vcr'
   gem 'webmock'
